@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20160426204811) do
     t.datetime "updated_at",     null: false
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.integer  "noteable_id"
+    t.string   "noteable_type"
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id"
+
   create_table "people", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
