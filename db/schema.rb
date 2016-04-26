@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 20160426183010) do
     t.string   "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+=======
+ActiveRecord::Schema.define(version: 20160426184326) do
+
+  create_table "interactions", force: :cascade do |t|
+    t.string   "topic"
+    t.string   "medium"
+    t.text     "details"
+    t.datetime "follow_up_date"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "users", force: :cascade do |t|
