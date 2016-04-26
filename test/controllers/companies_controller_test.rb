@@ -12,28 +12,37 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show
+    @company = companies(:one)
+    get :show, id: @company.id
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit
+    @company = companies(:one)
+    get :edit, id: @company.id
     assert_response :success
   end
 
   test "should get create" do
-    get :create
-    assert_response :success
+    company_count = Company.count
+    post :create, company: { notes: "blah", salesperson: "mike" }
+    assert assigns(:company).valid?
+    assert_equal company_count + 1, Company.count
   end
 
   test "should get update" do
-    get :update
-    assert_response :success
+    @company = companies(:one)
+    patch :update, id: @company.id, company: { notes: "Makes tacos" }
+    assert_redirected_to company_path(id: @company.id)
+    assert_equal "Makes tacos", assigns[:company].notes
   end
 
   test "should get destroy" do
-    get :destroy
-    assert_response :success
+    @company = companies(:one)
+    company_count = Company.count
+    delete :destroy, id: @company.id
+    assert_redirected_to companies_path
+    assert_equal company_count - 1, Company.count
   end
 
 end
