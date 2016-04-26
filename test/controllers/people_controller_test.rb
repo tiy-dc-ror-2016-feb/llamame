@@ -12,13 +12,11 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    skip
     get :new
     assert_response :success
   end
 
   test "should create person" do
-    skip
     assert_difference('Person.count') do
       post :create, person: { first_name: @person.first_name, last_name: @person.last_name }
     end
@@ -27,25 +25,21 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   test "should show person" do
-    skip
     get :show, id: @person
     assert_response :success
   end
 
   test "should get edit" do
-    skip
     get :edit, id: @person
     assert_response :success
   end
 
   test "should update person" do
-    skip
     patch :update, id: @person, person: { first_name: @person.first_name, last_name: @person.last_name }
     assert_redirected_to person_path(assigns(:person))
   end
 
   test "should destroy person" do
-    skip
     assert_difference('Person.count', -1) do
       delete :destroy, id: @person
     end
