@@ -2,8 +2,8 @@
 
 one:
   notes: MyText
-  salesperson: MyText
+  salesperson: MyString
 
 two:
   notes: MyText
-  salesperson: MyText
+  salesperson: MyString

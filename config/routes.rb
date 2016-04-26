@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
-  resources :companies
+  get 'companies/index'
+
+  get 'companies/new'
+
+  get 'companies/show'
+
+  get 'companies/edit'
+
+  get 'companies/create'
+
+  get 'companies/update'
+
+  get 'companies/destroy'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
