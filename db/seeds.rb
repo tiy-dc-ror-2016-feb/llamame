@@ -10,4 +10,4 @@
   Person.create(first_name: FFaker::Name.first_name, last_name: FFaker::Name.last_name)
 end
 
-@boss = User.create(email: "boss@boss.com", encrypted_password: "pass", first_name: "bob", last_name: "the builder", is_a_boss: true)
+@boss = User.create(email: "boss@boss.com", password: "password", first_name: "Sam", last_name: "Kim", is_a_boss: true)
