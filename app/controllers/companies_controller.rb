@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_action :set_company, only: [:show, :edit, :update, :destroy]
+
   def index
     @companies = Company.all
   end
@@ -8,11 +10,9 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.find(params[:id])
   end
 
   def edit
-    @company = Company.find(params[:id])
   end
 
   def create
@@ -21,13 +21,11 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    @company = Company.find(params[:id])
     @company.update(company_params)
     redirect_to company_path(id: @company.id)
   end
 
   def destroy
-    @company = Company.find(params[:id])
     @company.destroy!
     redirect_to companies_path
   end
@@ -36,5 +34,9 @@ class CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit(:notes, :salesperson)
+  end
+
+  def set_company
+    @company = Company.find(params[:id])
   end
 end
