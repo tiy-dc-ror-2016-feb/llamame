@@ -1,0 +1,33 @@
+<%= form_for(@interaction) do |f| %>
+  <% if @interaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@interaction.errors.count, "error") %> prohibited this interaction from being saved:</h2>
+
+      <ul>
+      <% @interaction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :topic %><br>
+    <%= f.text_field :topic %>
+  </div>
+  <div class="field">
+    <%= f.label :medium %><br>
+    <%= f.text_field :medium %>
+  </div>
+  <div class="field">
+    <%= f.label :details %><br>
+    <%= f.text_area :details %>
+  </div>
+  <div class="field">
+    <%= f.label :follow_up_date %><br>
+    <%= f.datetime_select :follow_up_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

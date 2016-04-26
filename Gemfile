@@ -12,6 +12,7 @@ gem "sdoc", "~> 0.4.0", group: :doc
 gem "devise"
 gem "twitter-bootstrap-rails"
 gem "kaminari"
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
@@ -22,6 +23,11 @@ end
 group :test, :development do
   gem "ffaker"
   gem "sqlite3"
+  gem "pry"
+end
+
+group :test do
+  gem "codeclimate-test-reporter", require: nil
 end
 
 group :production do
