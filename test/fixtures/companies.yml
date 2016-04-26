@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  notes: MyText
+  salesperson: MyText
+
+two:
+  notes: MyText
+  salesperson: MyText
