@@ -26,7 +26,7 @@ group :test, :development do
 end
 
 group :test do
-  gem "codeclimate-test-reporter"
+  gem "codeclimate-test-reporter", require: nil
 end
 
 group :production do
