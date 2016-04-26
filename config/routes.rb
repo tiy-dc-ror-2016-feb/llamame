@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'dashboard#index'
-
   resources :people
   resources :interactions
+  resources :companies
   resources :users
   resources :notes
   devise_for :users
