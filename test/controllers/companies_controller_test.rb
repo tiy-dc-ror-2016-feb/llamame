@@ -1,9 +1,14 @@
 require 'test_helper'
 
 class CompaniesControllerTest < ActionController::TestCase
+  setup do
+    @company = companies(:one)
+  end
+
   test "should get index" do
     get :index
     assert_response :success
+    assert_not_nil assigns(:companies)
   end
 
   test "should get new" do
@@ -11,38 +16,34 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get show" do
-    @company = companies(:one)
-    get :show, id: @company.id
+  test "should create company" do
+    assert_difference('Company.count') do
+      post :create, company: {  }
+    end
+
+    assert_redirected_to company_path(assigns(:company))
+  end
+
+  test "should show company" do
+    get :show, id: @company
     assert_response :success
   end
 
   test "should get edit" do
-    @company = companies(:one)
-    get :edit, id: @company.id
+    get :edit, id: @company
     assert_response :success
   end
 
-  test "should get create" do
-    company_count = Company.count
-    post :create, company: { notes: "blah", salesperson: "mike" }
-    assert assigns(:company).valid?
-    assert_equal company_count + 1, Company.count
+  test "should update company" do
+    patch :update, id: @company, company: {  }
+    assert_redirected_to company_path(assigns(:company))
   end
 
-  test "should get update" do
-    @company = companies(:one)
-    patch :update, id: @company.id, company: { notes: "Makes tacos" }
-    assert_redirected_to company_path(id: @company.id)
-    assert_equal "Makes tacos", assigns[:company].notes
-  end
+  test "should destroy company" do
+    assert_difference('Company.count', -1) do
+      delete :destroy, id: @company
+    end
 
-  test "should get destroy" do
-    @company = companies(:one)
-    company_count = Company.count
-    delete :destroy, id: @company.id
     assert_redirected_to companies_path
-    assert_equal company_count - 1, Company.count
   end
-
 end
