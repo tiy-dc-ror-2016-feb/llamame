@@ -6,7 +6,8 @@
 #
 
 user_1:
-  email: llamalover@email.com
-#
-user_2:
-  email: bigsales@email.com
+  email: sam@sam.com
+
+
+two:
+  email: sam1@sam.com

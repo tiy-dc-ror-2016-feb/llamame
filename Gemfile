@@ -23,6 +23,7 @@ end
 group :test, :development do
   gem "ffaker"
   gem "sqlite3"
+  gem "pry"
 end
 
 group :test do
