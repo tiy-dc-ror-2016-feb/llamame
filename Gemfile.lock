@@ -185,6 +185,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  bcrypt
   better_errors
   binding_of_caller
   coffee-rails (~> 4.1.0)
@@ -193,6 +194,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   pg
+  pry
   pry-rails
   quiet_assets
   rails (= 4.2.6)
