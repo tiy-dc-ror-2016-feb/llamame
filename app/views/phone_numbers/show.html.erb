@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @phone_number.number %>
+</p>
+
+<p>
+  <strong>Number type:</strong>
+  <%= @phone_number.number_type %>
+</p>
+
+<p>
+  <strong>Phone numberable:</strong>
+  <%= @phone_number.phone_numberable_id %>
+</p>
+
+<p>
+  <strong>Phone numberable type:</strong>
+  <%= @phone_number.phone_numberable_type %>
+</p>
+
+<%= link_to 'Edit', edit_phone_number_path(@phone_number) %> |
+<%= link_to 'Back', phone_numbers_path %>

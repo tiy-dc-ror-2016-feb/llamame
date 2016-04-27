@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 20160427173827) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "phone_numbers", force: :cascade do |t|
+    t.string   "number"
+    t.string   "number_type"
+    t.integer  "phone_numberable_id"
+    t.string   "phone_numberable_type"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
