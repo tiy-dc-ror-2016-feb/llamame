@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.page(params[:page])
+    @companies = Company.all
     @companies = Kaminari.paginate_array(@companies).page(params[:page]).per(10)
 
 
