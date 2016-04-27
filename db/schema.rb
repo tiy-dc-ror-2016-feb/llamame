@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426204811) do
+ActiveRecord::Schema.define(version: 20160427173827) do
 
   create_table "companies", force: :cascade do |t|
     t.text     "notes"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20160426204811) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "name"
+  end
+
+  create_table "emails", force: :cascade do |t|
+    t.string   "email"
+    t.integer  "emailable_id"
+    t.string   "emailable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "interactions", force: :cascade do |t|
