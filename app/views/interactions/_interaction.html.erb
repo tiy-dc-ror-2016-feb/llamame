@@ -1,0 +1,28 @@
+
+    <h3>
+      <%= interaction.topic %>
+    </h3>
+
+    <p>
+      <strong>Medium:</strong>
+      <%= interaction.medium %>
+    </p>
+
+    <p>
+      <strong>Details:</strong>
+      <%= truncate interaction.details, :length => 80 %>
+      <%= link_to fa_icon('eye', text: 'Click for more...'), interaction, class: 'btn btn-sm btn-default' %>
+    </p>
+
+    <p>
+      <strong>Date of interaction:</strong>
+      <%= interaction.created_at.strftime("%m/%d/%y") %>
+    </p>
+
+    <p>
+      <strong>Follow up date:</strong>
+      <%= interaction.follow_up_date.strftime("%m/%d/%y") %>
+    </p>
+      <%= link_to fa_icon('pencil', text: 'Edit'), edit_interaction_path(interaction), class: 'btn btn-sm btn-default' %>
+      <%= link_to fa_icon('trash-o', text: 'Destroy'), interaction, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+<hr>
