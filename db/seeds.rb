@@ -17,14 +17,14 @@ end
 end
 
 25.times do
-  Company.create(name: FFaker::Company.name, salesperson: FFaker::Name.name, notes: FFaker::Lorem.sentences)
+  Company.create(name: FFaker::Company.name, salesperson: FFaker::Name.name, notes: FFaker::Lorem.sentences.join("\n"))
 end
 
 15.times do
-  Note.create(body: FFaker::Lorem.paragraphs)
+  Note.create(body: FFaker::Lorem.paragraphs.join("\n"))
 end
 
 30.times do |list|
   list = ["email", "phone", "voicemail", "in person"]
-  Interaction.create(topic: FFaker::Lorem.sentence, medium: list[rand(0..3)], details: FFaker::Lorem.paragraphs, follow_up_date: FFaker::Time.date)
+  Interaction.create(topic: FFaker::Lorem.sentence, medium: list[rand(0..3)], details: FFaker::Lorem.paragraphs.join("\n"), follow_up_date: FFaker::Time.date)
 end
