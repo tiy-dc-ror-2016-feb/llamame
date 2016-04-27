@@ -6,10 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-100.times do
-  Person.create(first_name: FFaker::Name.first_name, last_name: FFaker::Name.last_name)
-end
-
 @boss = User.create(email: "boss@boss.com", password: "password", first_name: "Sam", last_name: "Kim", is_a_boss: true)
 
 20.times do
@@ -18,6 +14,10 @@ end
 
 25.times do
   Company.create(name: FFaker::Company.name, salesperson: FFaker::Name.name, notes: FFaker::Lorem.sentences.join("\n"))
+end
+
+100.times do
+  Person.create(first_name: FFaker::Name.first_name, last_name: FFaker::Name.last_name, company_id: rand(1..25))
 end
 
 15.times do

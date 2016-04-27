@@ -3,6 +3,12 @@
 one:
   first_name: MyString
   last_name: MyString
+  company: one
+
+two:
+  first_name: MyString
+  last_name: MyString
+  company: two
 
 two:
   first_name: MyString
