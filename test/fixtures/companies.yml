@@ -3,7 +3,8 @@
 one:
   notes: MyText
   salesperson: MyString
-
+  name: company_name
+  
 two:
   notes: MyText
   salesperson: MyString
