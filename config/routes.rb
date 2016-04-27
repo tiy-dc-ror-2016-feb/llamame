@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :people
   resources :interactions
   resources :companies
-  resources :users
+  scope 'admin' do
+    resources :users
+  end
   resources :notes
 
   # The priority is based upon order of creation: first created -> highest priority.
