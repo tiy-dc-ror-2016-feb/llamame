@@ -1,0 +1,23 @@
+<h1> Recent 10 Interactions </h1>
+
+<div class="recent-interactions-table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Topic</th>
+        <th>Last Update</th>
+        <th>Method</th>
+    </tr>
+      <tbody>
+        <% @recents.each do |interaction| %>
+          <tr>
+            <td><%= link_to interaction.topic, interaction %></td>
+            <td><%= interaction.updated_at.strftime("%a, %m/%d - %I:%M %p") %></td>
+            <td><div class="medium-icon"><%= icon_type(interaction.medium) %></div></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </thead>
+
+  </table>
+</div>
