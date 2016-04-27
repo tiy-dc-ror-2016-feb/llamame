@@ -25,6 +25,7 @@ group :test, :development do
   gem "ffaker"
   gem "sqlite3"
   gem "pry"
+  gem "minitest-focus"
 end
 
 group :test do

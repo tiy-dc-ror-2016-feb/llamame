@@ -5,6 +5,8 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @companies = Company.all
+    @companies = Kaminari.paginate_array(@companies).page(params[:page]).per(10)
+
 
     respond_to do |format|
       format.html # index.html.erb

@@ -4,7 +4,7 @@ class InteractionsController < ApplicationController
   # GET /interactions
   # GET /interactions.json
   def index
-    @interactions = Interaction.all
+    @interactions = Interaction.all.order(created_at: :desc).page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
