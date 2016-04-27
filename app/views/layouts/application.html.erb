@@ -70,6 +70,7 @@
               <li><%= link_to "People", "/people"  %></li>
               <li><%= link_to "Interactions", "/interactions"  %></li>
             </ul>
+            <%= yield :sidebar if content? %>
           </div><!--/.well -->
         </div><!--/span-->
         <div class="col-lg-9">
