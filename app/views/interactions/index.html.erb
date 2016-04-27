@@ -1,33 +1,11 @@
-<p id="notice"><%= notice %></p>
+<% content_for(:sidebar) do %>
+  <%= link_to 'New Interaction', new_interaction_path, class: "btn btn-success btn-block"%>
+<% end %>
 
-<h1>Listing Interactions</h1>
+<h1>
+  <%= fa_icon(:wpforms) %>
+  Interactions
+</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Topic</th>
-      <th>Medium</th>
-      <th>Details</th>
-      <th>Follow up date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @interactions.each do |interaction| %>
-      <tr>
-        <td><%= interaction.topic %></td>
-        <td><%= interaction.medium %></td>
-        <td><%= interaction.details %></td>
-        <td><%= interaction.follow_up_date %></td>
-        <td><%= link_to 'Show', interaction %></td>
-        <td><%= link_to 'Edit', edit_interaction_path(interaction) %></td>
-        <td><%= link_to 'Destroy', interaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Interaction', new_interaction_path %>
+  <%= render @interactions %>
+  <%= paginate @interactions %>
