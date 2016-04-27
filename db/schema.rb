@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426202750) do
+ActiveRecord::Schema.define(version: 20160427173751) do
+
+  create_table "companies", force: :cascade do |t|
+    t.text     "notes"
+    t.string   "salesperson"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "name"
+  end
 
   create_table "interactions", force: :cascade do |t|
     t.string   "topic"
@@ -22,11 +30,31 @@ ActiveRecord::Schema.define(version: 20160426202750) do
     t.datetime "updated_at",     null: false
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.integer  "noteable_id"
+    t.string   "noteable_type"
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id"
+
   create_table "people", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "phone_numbers", force: :cascade do |t|
+    t.string   "number"
+    t.string   "number_type"
+    t.integer  "phone_numberable_id"
+    t.string   "phone_numberable_type"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "users", force: :cascade do |t|

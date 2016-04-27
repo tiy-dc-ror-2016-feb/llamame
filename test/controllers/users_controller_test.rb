@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
     @user = users(:user_1)
+    sign_in users(:user_1)
   end
 
   test "should get index" do
@@ -35,7 +38,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should update user" do
-    patch :update, id: @user, user: {  }
+    patch :update, id: @user, user: { email: "hello1@sam.com", password: "password1" }
     assert_redirected_to user_path(assigns(:user))
   end
 
