@@ -47,9 +47,9 @@
         </button>
         <a class="navbar-brand" href="#">Home</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Profile", "/users/#{current_user.id}"  %></li>
+          <ul class="nav navbar-nav navbar-right">
               <% if current_user %>
+                <li><%= link_to "Profile", "/users/#{current_user.id}"  %></li>
                 <li><%= link_to "Sign Out", "/users/sign_out"  %></li>
               <% else %>
                 <li><%= link_to "Sign In", "/users/sign_in"  %></li>
@@ -63,7 +63,6 @@
       <div class="row">
         <div class="col-lg-3">
           <div class="well sidebar-nav">
-            <h3>Llamame</h3>
               <ul class="nav nav-list">
                 <li><%= link_to "Company", "/companies"  %></li>
                 <li><%= link_to "People", "/people"  %></li>
