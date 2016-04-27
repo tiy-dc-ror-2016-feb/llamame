@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.page(params[:page])
+    @companies = Company.all
     @companies = Kaminari.paginate_array(@companies).page(params[:page]).per(10)
 
 
@@ -80,6 +80,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params[:company]
+      params.require(:company).permit(:name, :notes, :salesperson)
     end
 end
