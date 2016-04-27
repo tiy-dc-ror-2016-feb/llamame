@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class PhoneNumbersControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
     @phone_number = phone_numbers(:one)
   end
