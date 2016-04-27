@@ -12,6 +12,7 @@ gem "sdoc", "~> 0.4.0", group: :doc
 gem "devise"
 gem "twitter-bootstrap-rails"
 gem "kaminari"
+gem "font-awesome-rails"
 
 group :development do
   gem "better_errors"
