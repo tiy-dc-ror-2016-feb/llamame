@@ -1,6 +1,11 @@
-<p id="notice"><%= notice %></p>
+<% content_for(:sidebar) do %>
+  <%= link_to 'New Company', new_company_path, class: "btn btn-success btn-block"%>
+<% end %>
 
-<h1>Companies</h1>
+<h1>
+  <%= fa_icon(:user) %>
+  Companies
+</h1>
 
 <table class="table table-striped">
   <thead>
@@ -17,7 +22,3 @@
     <%= paginate @companies %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Company', new_company_path %>
