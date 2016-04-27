@@ -4,6 +4,7 @@ class PhoneNumbersControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
+    sign_in users(:user_1)
     @phone_number = phone_numbers(:one)
   end
 
