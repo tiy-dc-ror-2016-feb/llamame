@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class InteractionsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
     @interaction = interactions(:one)
+    sign_in users(:user_1)
   end
 
   test "should get index" do
