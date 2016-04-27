@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class EmailsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
     @email = emails(:one)
   end
