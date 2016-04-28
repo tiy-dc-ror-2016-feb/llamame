@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427191110) do
+ActiveRecord::Schema.define(version: 20160428145829) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_1"
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(version: 20160427191110) do
     t.datetime "updated_at",       null: false
   end
 
+  add_index "addresses", ["addressable_type"], name: "index_addresses_on_addressable_type"
+
   create_table "companies", force: :cascade do |t|
-    t.text     "notes"
     t.string   "salesperson"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -43,6 +44,8 @@ ActiveRecord::Schema.define(version: 20160427191110) do
     t.datetime "updated_at",     null: false
   end
 
+  add_index "emails", ["emailable_type"], name: "index_emails_on_emailable_type"
+
   create_table "interactions", force: :cascade do |t|
     t.string   "topic"
     t.string   "medium"
@@ -50,6 +53,8 @@ ActiveRecord::Schema.define(version: 20160427191110) do
     t.datetime "follow_up_date"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "person_id"
+    t.integer  "user_id"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -61,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160427191110) do
     t.datetime "updated_at",    null: false
   end
 
+  add_index "notes", ["noteable_type"], name: "index_notes_on_noteable_type"
   add_index "notes", ["user_id"], name: "index_notes_on_user_id"
 
   create_table "people", force: :cascade do |t|
@@ -79,6 +85,8 @@ ActiveRecord::Schema.define(version: 20160427191110) do
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end
+
+  add_index "phone_numbers", ["phone_numberable_type"], name: "index_phone_numbers_on_phone_numberable_type"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
