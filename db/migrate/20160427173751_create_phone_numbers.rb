@@ -8,5 +8,7 @@ class CreatePhoneNumbers < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :phone_numbers, :phone_numberable_id
   end
 end
