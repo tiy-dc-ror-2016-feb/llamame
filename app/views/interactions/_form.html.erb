@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :medium %><br>
-    <%= f.text_field :medium %>
+    <%= f.collection_select :medium, Interaction::MEDIUMS, :first, :last %>
   </div>
   <div class="field">
     <%= f.label :details %><br>
