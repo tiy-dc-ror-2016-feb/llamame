@@ -14,7 +14,7 @@
 end
 
 25.times do
-  Company.create(name: FFaker::Company.name, salesperson: FFaker::Name.name, notes: FFaker::Lorem.sentences.join("\n"))
+  Company.create(name: FFaker::Company.name, salesperson: FFaker::Name.name) #notes: FFaker::Lorem.sentences.join("\n"))
 end
 
 100.times do
