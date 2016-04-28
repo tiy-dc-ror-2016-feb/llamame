@@ -7,5 +7,7 @@ class CreateEmails < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :emails, :emailable_id
   end
 end
