@@ -25,7 +25,7 @@ end
   Note.create(body: FFaker::Lorem.paragraphs.join("\n"))
 end
 
-50.times do |list|
+100.times do |list|
   list = ["email", "phone", "voicemail", "in person"]
-  Interaction.create(topic: FFaker::Lorem.sentence, medium: list[rand(0..3)], details: FFaker::Lorem.paragraphs.join("\n"), follow_up_date: FFaker::Time.date, person_id: rand(1..100))
+  Interaction.create(topic: FFaker::Lorem.sentence, medium: list[rand(0..3)], details: FFaker::Lorem.paragraphs.join("\n"), follow_up_date: FFaker::Time.date, person_id: rand(1..100), user_id: rand(1..20))
 end

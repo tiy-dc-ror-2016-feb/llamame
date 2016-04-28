@@ -1,0 +1,10 @@
+<tr>
+  <td><%= user.first_name %></td>
+  <td><%= user.last_name %></td>
+
+  <td>
+    <%= link_to fa_icon('eye', text: 'Show'), user, class: 'btn btn-sm btn-default' %>
+    <%= link_to fa_icon('pencil', text: 'Edit'), edit_user_path(user), class: 'btn btn-sm btn-default' %>
+    <%= link_to fa_icon('trash-o', text: 'Destroy'), user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+  </td>
+</tr>
