@@ -15,5 +15,15 @@
   <%= @person.company.name %>
 </p>
 
+<p>
+  <strong>Notes:</strong>
+  <% @person.notes.each do |note| %>
+  <%=  note.created_at.strftime("%m/%d") %> :
+  <%= note.body%>
+  <hr>
+  <% end %>
+</p>
+
+
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>
