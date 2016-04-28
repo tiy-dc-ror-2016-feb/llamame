@@ -5,9 +5,11 @@ one:
   medium: phone
   details: Person and I talked on the phone about increating llama sales next quarter.
   follow_up_date: 2016-04-26 14:43:26
+  person: one
 
 two:
   topic: Investing cuddly llamas
   medium: email
   details: Person wants to know how much to invest in cuddling llamas
   follow_up_date: 2016-04-26 14:43:26
+  person: two

@@ -9,8 +9,8 @@ class DashboardControllerTest < ActionController::TestCase
   end
 
   test "can get dashboard index" do
+    @person = people(:one)
     get :index
-
     assert_response :success
   end
 end

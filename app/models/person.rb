@@ -4,5 +4,6 @@ class Person < ActiveRecord::Base
   has_many :emails, as: :emailable
   has_many :addresses, as: :addressable
   has_many :notes, as: :noteable
+  has_many :interactions
 
 end

@@ -6,7 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-@boss = User.create(email: "boss@boss.com", password: "password", first_name: "Sam", last_name: "Kim", is_a_boss: true)
+@boss = User.create(email: "admin@admin.com", password: "password", first_name: "Bob", last_name: "the Builder", is_a_boss: true)
+@user = User.create(email: "user@user.com", password: "password", first_name: "Bob", last_name: "the User", is_a_boss: false)
 
 20.times do
   User.create(email: FFaker::Internet.email, password: "password", first_name: FFaker::Name.first_name, last_name: FFaker::Name.last_name)
@@ -24,7 +25,7 @@ end
   Note.create(body: FFaker::Lorem.paragraphs.join("\n"))
 end
 
-30.times do |list|
+50.times do |list|
   list = ["email", "phone", "voicemail", "in person"]
-  Interaction.create(topic: FFaker::Lorem.sentence, medium: list[rand(0..3)], details: FFaker::Lorem.paragraphs.join("\n"), follow_up_date: FFaker::Time.date)
+  Interaction.create(topic: FFaker::Lorem.sentence, medium: list[rand(0..3)], details: FFaker::Lorem.paragraphs.join("\n"), follow_up_date: FFaker::Time.date, person_id: rand(1..100))
 end
