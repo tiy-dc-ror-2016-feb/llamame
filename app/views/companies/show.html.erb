@@ -39,8 +39,13 @@
 
 <p>
   <strong>Notes:</strong>
-  <%= @company.notes %>
+  <% @company.notes.each do |note| %>
+  <%=  note.created_at.strftime("%m/%d") %> :
+  <%= note.body%>
+  <hr>
+  <% end %>
 </p>
+
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>

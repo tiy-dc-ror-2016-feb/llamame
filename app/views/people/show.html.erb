@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <strong>Company:</strong>
+  <%= @person.company.name %>
+</p>
+
+<p>
   <strong>Phone numbers:</strong>
   <% @person.phone_numbers.each do |phone_number| %>
   <%= phone_number.number %>
@@ -37,7 +42,11 @@
 
 <p>
   <strong>Notes:</strong>
-  <%= @person.notes %>
+  <% @person.notes.each do |note| %>
+  <%=  note.created_at.strftime("%m/%d") %> :
+  <%= note.body%>
+  <hr>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
