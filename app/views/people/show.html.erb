@@ -10,5 +10,10 @@
   <%= @person.last_name %>
 </p>
 
+<p>
+  <strong>Company:</strong>
+  <%= @person.company.name %>
+</p>
+
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>
