@@ -7,6 +7,7 @@
         <th>Topic</th>
         <th>Last Update</th>
         <th>Method</th>
+        <th>Follow Up With</th>
     </tr>
       <tbody>
         <% @recents.each do |interaction| %>
@@ -14,6 +15,7 @@
             <td><%= link_to interaction.topic, interaction %></td>
             <td><%= interaction.updated_at.strftime("%a, %m/%d - %I:%M %p") %></td>
             <td><div class="medium-icon"><%= icon_type(interaction.medium) %></div></td>
+            <td><%= link_to interaction.person.first_name, person_path(interaction.person.id) %></td>
           </tr>
         <% end %>
       </tbody>
