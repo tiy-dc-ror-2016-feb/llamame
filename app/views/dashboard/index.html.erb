@@ -1,25 +1,80 @@
-<h1> Recent 10 Interactions </h1>
+<%= image_tag("llama.svg", :alt => "llama", id: "dashboard-llama") %>
 
-<div class="recent-interactions-table">
+<h3 id="llama-fact"><em>< Llama fact here ></em></h3>
+
+<div class="row" id="dashboard-button-group">
+  <div class="col-md-3 col-md-offset-3">
+    <button type="button" class="btn btn-default btn-lg btn-block" id="followups-needed-btn">
+      <div class="button-content">
+        <h1><%= @followups.count %></h1>
+        <p><%= "Followup".pluralize(@followups.count) %> Needed</p>
+      </div>
+    </button>
+  </div>
+
+  <div class="col-md-3">
+    <button type="button" class="btn btn-default btn-lg btn-block" id="recent-interactions-btn">
+      <div class="button-content">
+        <h1><%= @recents.count %></h1>
+        <p id="button-text">Recent <%= "Interaction".pluralize(@recents.count) %></p>
+      </div>
+    </button>
+  </div>
+</div>
+
+<div class="panel panel-primary" id="followups-needed-panel">
+  <div class="panel-heading"><h4>Followups Needed Within the Next 24 hours</h4></div>
+
   <table class="table">
     <thead>
       <tr>
         <th>Topic</th>
-        <th>Last Update</th>
-        <th>Method</th>
-        <th>Follow Up With</th>
+        <th>Follow Up Date</th>
+        <th>Contact</th>
     </tr>
       <tbody>
-        <% @recents.each do |interaction| %>
+        <% @followups.each do |interaction| %>
           <tr>
             <td><%= link_to interaction.topic, interaction %></td>
-            <td><%= interaction.updated_at.strftime("%a, %m/%d - %I:%M %p") %></td>
-            <td><div class="medium-icon"><%= icon_type(interaction.medium) %></div></td>
+            <td>
+              <%= interaction.updated_at.strftime("%a, %m/%d") %><br>
+              <%= interaction.updated_at.strftime("%I:%M %p") %>
+            </td>
             <td><%= link_to interaction.person.first_name, person_path(interaction.person.id) %></td>
           </tr>
         <% end %>
       </tbody>
     </thead>
-
   </table>
+</div>
+
+<div class="panel panel-primary" id="recent-interactions-panel">
+  <div class="panel-heading"><h4>Interactions Within the Past 24 Hours</h4></div>
+  <div class="panel-body">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Last Update</th>
+          <th>Method</th>
+          <th>Contact</th>
+      </tr>
+        <tbody>
+          <% @recents.each do |interaction| %>
+            <tr>
+              <td><%= link_to interaction.topic, interaction %></td>
+              <td>
+                <%= interaction.updated_at.strftime("%a, %m/%d") %><br>
+                <%= interaction.updated_at.strftime("%I:%M %p") %>
+              </td>
+              <td><div class="medium-icon"><%= icon_type(interaction.medium) %></div></td>
+              <td><%= link_to interaction.person.first_name, person_path(interaction.person.id) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </thead>
+    </table>
+
+  </div>
 </div>
