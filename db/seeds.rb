@@ -14,18 +14,22 @@
 end
 
 25.times do
-  Company.create(name: FFaker::Company.name, salesperson: FFaker::Name.name) #notes: FFaker::Lorem.sentences.join("\n"))
+  Company.create(name: FFaker::Company.name, salesperson: FFaker::Name.name)
 end
 
-100.times do
+50.times do
   Person.create(first_name: FFaker::Name.first_name, last_name: FFaker::Name.last_name, company_id: rand(1..25))
 end
 
-15.times do
-  Note.create(body: FFaker::Lorem.paragraphs.join("\n"))
+100.times do
+  Note.create(user_id: rand(1..20), noteable_type: "Company", noteable_id: rand(1..25), body: FFaker::Lorem.paragraph)
+end
+
+100.times do
+  Note.create(user_id: rand(1..20), noteable_type: "Person", noteable_id: rand(1..100), body: FFaker::Lorem.paragraph)
 end
 
 100.times do |list|
   list = ["email", "phone", "voicemail", "in person"]
-  Interaction.create(topic: FFaker::Lorem.sentence, medium: list[rand(0..3)], details: FFaker::Lorem.paragraphs.join("\n"), follow_up_date: FFaker::Time.date, person_id: rand(1..100), user_id: rand(1..20))
+  Interaction.create(topic: FFaker::Lorem.sentence, medium: list[rand(0..3)], details: FFaker::Lorem.paragraphs.join("\n"), follow_up_date: FFaker::Time.date, person_id: rand(1..50), user_id: rand(1..20))
 end
