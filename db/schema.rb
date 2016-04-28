@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20160428143640) do
     t.datetime "updated_at",       null: false
   end
 
-  add_index "addresses", ["addressable_id"], name: "index_addresses_on_addressable_id"
   add_index "addresses", ["addressable_type"], name: "index_addresses_on_addressable_type"
 
   create_table "companies", force: :cascade do |t|
@@ -45,7 +44,6 @@ ActiveRecord::Schema.define(version: 20160428143640) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "emails", ["emailable_id"], name: "index_emails_on_emailable_id"
   add_index "emails", ["emailable_type"], name: "index_emails_on_emailable_type"
 
   create_table "interactions", force: :cascade do |t|
@@ -67,7 +65,6 @@ ActiveRecord::Schema.define(version: 20160428143640) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "notes", ["noteable_id"], name: "index_notes_on_noteable_id"
   add_index "notes", ["noteable_type"], name: "index_notes_on_noteable_type"
   add_index "notes", ["user_id"], name: "index_notes_on_user_id"
 
@@ -88,7 +85,6 @@ ActiveRecord::Schema.define(version: 20160428143640) do
     t.datetime "updated_at",            null: false
   end
 
-  add_index "phone_numbers", ["phone_numberable_id"], name: "index_phone_numbers_on_phone_numberable_id"
   add_index "phone_numbers", ["phone_numberable_type"], name: "index_phone_numbers_on_phone_numberable_type"
 
   create_table "users", force: :cascade do |t|
