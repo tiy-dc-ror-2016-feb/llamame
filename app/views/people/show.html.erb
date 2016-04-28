@@ -16,6 +16,31 @@
 </p>
 
 <p>
+  <strong>Phone numbers:</strong>
+  <% @person.phone_numbers.each do |phone_number| %>
+  <%= phone_number.number %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Email addresses:</strong>
+  <% @person.emails.each do |email| %>
+  <%= email.email %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Addresses:</strong>
+  <% @person.addresses.each do |address| %>
+  <%= address.address_1 %>
+  <%= address.address_2 %>
+  <%= address.city %>
+  <%= address.zip_code %>
+  <%= address.country %>
+  <% end %>
+</p>
+
+<p>
   <strong>Notes:</strong>
   <% @person.notes.each do |note| %>
   <%=  note.created_at.strftime("%m/%d") %> :
@@ -23,7 +48,6 @@
   <hr>
   <% end %>
 </p>
-
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>
