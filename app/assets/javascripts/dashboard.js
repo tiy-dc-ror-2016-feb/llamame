@@ -1,9 +1,15 @@
-console.log('Im on the dashboard page!')
+$( document ).ready(function() {
 
-var myButton = $( "#upcoming-followups-btn" );
+  $( "#followups-needed-btn" ).click(function() {
+    $( "#followups-needed-panel" ).slideToggle( function() {
+      $( "#recent-interactions-panel" ).hide();
+    });
+  });
 
-console.log(myButton);
+  $( "#recent-interactions-btn" ).click(function() {
+    $( "#recent-interactions-panel" ).slideToggle( function() {
+      $( "#followups-needed-panel" ).hide();
+    });
+  });
 
-$( "#upcoming-followups-btn" ).click(function() {
-  alert('hi');
 });
