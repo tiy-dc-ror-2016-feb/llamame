@@ -7,7 +7,6 @@ class CompaniesController < ApplicationController
     @companies = Company.all
     @companies = Kaminari.paginate_array(@companies).page(params[:page]).per(10)
 
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @companies }
@@ -80,6 +79,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :salesperson)
+      params.require(:company).permit(:name, :user_id)
     end
 end
