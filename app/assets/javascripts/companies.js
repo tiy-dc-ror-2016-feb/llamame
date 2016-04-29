@@ -1,4 +1,4 @@
-console.log('I work on the companies page')
+console.log('I work on the companies page');
 
 
 $( document ).ready(function() {
@@ -11,4 +11,4 @@ $( document ).ready(function() {
   });
 });
 
-console.log('END')
+console.log('END');
