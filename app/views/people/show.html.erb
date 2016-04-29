@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<% content_for(:sidebar) do %>
+  <%= link_to "Add Email",  new_person_email_path(@person),remote: true, class: "btn btn-primary" %>
+<% end %>
+
 
 <p>
   <strong>First name:</strong>
@@ -25,8 +28,11 @@
 <p>
   <strong>Email addresses:</strong>
   <% @person.emails.each do |email| %>
-  <%= email.email %>
+  <br><%= email.email %>
   <% end %>
+</p>
+
+<p id="email-form">
 </p>
 
 <p>
