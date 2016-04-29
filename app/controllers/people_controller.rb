@@ -15,6 +15,7 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
+    @company = Company.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @person }
