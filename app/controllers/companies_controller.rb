@@ -7,7 +7,6 @@ class CompaniesController < ApplicationController
     @companies = Company.all
     @companies = Kaminari.paginate_array(@companies).page(params[:page]).per(10)
 
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @companies }
