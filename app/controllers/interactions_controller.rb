@@ -33,7 +33,8 @@ class InteractionsController < ApplicationController
   # POST /interactions
   # POST /interactions.json
   def create
-    @interaction = Interaction.new(interaction_params)
+    @user = current_user
+    @interaction = @user.interactions.build(interaction_params)
 
     respond_to do |format|
       if @interaction.save
@@ -78,6 +79,6 @@ class InteractionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interaction_params
-      params.require(:interaction).permit(:topic, :medium, :details, :follow_up_date)
+      params.require(:interaction).permit(:topic, :medium, :details, :follow_up_date, :user_id, :person_id)
     end
 end
