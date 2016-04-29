@@ -50,5 +50,16 @@ module DashboardHelper
     "Innovation distinguishes between a leader and a follower.",
     "The successful warrior is the average man, with laser-like focus.",
      "Be miserable. Or motivate yourself. Whatever has to be done, it's always your choice."].sample
-   end
+  end
+
+  def total_word_count
+    interactions = Interaction.all
+    words_array = []
+    interactions.each do |interaction|
+      interaction = interaction.details.split
+      words_array.push(interaction)
+    end
+    words_array.flatten.count
+  end
+
 end
