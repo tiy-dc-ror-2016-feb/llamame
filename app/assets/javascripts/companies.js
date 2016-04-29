@@ -1,7 +1,5 @@
-console.log('I work on the companies page');
 
-
-$( document ).ready(function() {
+$(document.getElementById("#map")).ready(function() {
   mapboxgl.accessToken = 'pk.eyJ1IjoibmJiMTI4MDUiLCJhIjoiMUlFVjZWVSJ9.jeNyiaRq8MCHlXSlGQZIHA';
   var map = new mapboxgl.Map({
       container: 'map', // container id
@@ -11,4 +9,5 @@ $( document ).ready(function() {
   });
 });
 
-console.log('END');
+
+console.log('Im coming from the companies page');
