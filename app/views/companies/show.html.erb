@@ -7,6 +7,38 @@
 </div>
 
 <p>
+  <strong>People:</strong>
+  <% @company.people.each do |person| %>
+  <%= person.first_name %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Phone numbers:</strong>
+  <% @company.phone_numbers.each do |phone_number| %>
+  <%= phone_number.number %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Email addresses:</strong>
+  <% @company.emails.each do |email| %>
+  <%= email.email %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Addresses:</strong>
+  <% @company.addresses.each do |address| %>
+  <%= address.address_1 %>
+  <%= address.address_2 %>
+  <%= address.city %>
+  <%= address.zip_code %>
+  <%= address.country %>
+  <% end %>
+</p>
+
+<p>
   <strong>Notes:</strong>
   <% @company.notes.each do |note| %>
   <%=  note.created_at.strftime("%m/%d") %> :
