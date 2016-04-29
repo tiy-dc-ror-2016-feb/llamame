@@ -5,4 +5,9 @@ class Company < ActiveRecord::Base
   has_many :addresses, as: :addressable
   has_many :notes, as: :noteable
 
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%")
+    where("content LIKE ?", "%#{search}%")
+  end
+
 end
