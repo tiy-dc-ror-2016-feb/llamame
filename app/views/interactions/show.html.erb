@@ -20,5 +20,6 @@
   <%= @interaction.follow_up_date %>
 </p>
 
-<%= link_to 'Edit', edit_interaction_path(@interaction) %> |
-<%= link_to 'Back', interactions_path %>
+<br>
+<%= link_to fa_icon('pencil', text: 'Edit'), edit_interaction_path(@interaction), class: 'btn btn-sm btn-default' %>
+<%= link_to fa_icon('chevron-left', text: 'Back'), @interaction, class: 'btn btn-sm btn-default' %>

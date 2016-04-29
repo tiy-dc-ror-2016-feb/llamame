@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @company %> |
-<%= link_to 'Back', companies_path %>
+<br>
+<%= link_to fa_icon('eye', text: 'Show'), @company, class: 'btn btn-sm btn-default' %>
+<%= link_to fa_icon('chevron-left', text: 'Back'), @company, class: 'btn btn-sm btn-default' %>

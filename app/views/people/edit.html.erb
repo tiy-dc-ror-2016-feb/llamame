@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @person %> |
-<%= link_to 'Back', people_path %>
+<br>
+<%= link_to fa_icon('eye', text: 'Show'), @person, class: 'btn btn-sm btn-default' %>
+<%= link_to fa_icon('chevron-left', text: 'Back'), person_path, class: 'btn btn-sm btn-default' %>
