@@ -20,5 +20,6 @@
   <%= @note.user_id %>
 </p>
 
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+<br>
+<%= link_to fa_icon('pencil', text: 'Edit'), edit_note_path(@note), class: 'btn btn-sm btn-default' %>
+<%= link_to fa_icon('chevron-left', text: 'Back'), notes_path, class: 'btn btn-sm btn-default' %>
