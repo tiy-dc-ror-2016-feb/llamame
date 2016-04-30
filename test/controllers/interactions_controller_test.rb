@@ -4,6 +4,7 @@ class InteractionsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
+    @person = people(:one)
     @interaction = interactions(:one)
     sign_in users(:user_1)
   end
