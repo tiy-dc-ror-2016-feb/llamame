@@ -7,25 +7,26 @@ class EmailsControllerTest < ActionController::TestCase
     @user = users(:user_1)
     sign_in @user
     @email = emails(:one)
+    @person = people(:one)
   end
 
   test "should get index" do
-    get :index
+    get :index, person_id: @person.id
     assert_response :success
     assert_not_nil assigns(:emails)
   end
 
   test "should get new" do
-    get :new
+    get :new, person_id: @person.id
     assert_response :success
   end
 
   test "should create email" do
     assert_difference('Email.count') do
-      post :create, email: { email: @email.email, emailable_id: @email.emailable_id, emailable_type: @email.emailable_type }
+      post :create, person_id: @person.id, email: { email: @email.email, emailable_id: @email.emailable_id, emailable_type: @email.emailable_type }
     end
 
-    assert_redirected_to email_path(assigns(:email))
+    assert_redirected_to person_path(id: @person.id)
   end
 
   test "should show email" do

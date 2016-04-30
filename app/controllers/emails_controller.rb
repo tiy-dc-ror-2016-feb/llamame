@@ -4,7 +4,8 @@ class EmailsController < ApplicationController
   # GET /emails
   # GET /emails.json
   def index
-    @emails = Email.all
+    @emailable = Person.find(params[:person_id])
+    @emails = @emailable.emails
 
     respond_to do |format|
       format.html # index.html.erb
@@ -23,6 +24,7 @@ class EmailsController < ApplicationController
 
   # GET /emails/new
   def new
+    @emailable = Person.find(params[:person_id])
     @email = Email.new
   end
 
@@ -33,11 +35,12 @@ class EmailsController < ApplicationController
   # POST /emails
   # POST /emails.json
   def create
-    @email = Email.new(email_params)
+    @emailable = Person.find(params[:person_id])
+    @email = @emailable.emails.build(email_params)
 
     respond_to do |format|
       if @email.save
-        format.html { redirect_to @email, notice: 'Email was successfully created.' }
+        format.html { redirect_to @emailable }
         format.json { render json: @email, status: :created }
       else
         format.html { render action: 'new' }
