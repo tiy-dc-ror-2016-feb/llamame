@@ -33,3 +33,9 @@ h3#llama-fact {
 .medium-icon {
   margin-left: 20px;
 }
+
+.nohover:hover {
+  cursor: default;
+  background-color: white;
+  border-color: #ccc;
+}
