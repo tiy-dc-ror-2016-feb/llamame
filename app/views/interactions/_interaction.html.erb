@@ -23,6 +23,13 @@
       <strong>Follow up date:</strong>
       <%= interaction.follow_up_date.strftime("%m/%d/%y") %>
     </p>
+
+    <p><strong>Contact: </strong>
+      <%= link_to "#{interaction.person.first_name} #{interaction.person.last_name}", person_path(interaction.person_id) %>
+      <strong>, By: </strong>
+      <%= link_to "#{interaction.user.first_name} #{interaction.user.last_name}", user_path(interaction.user_id) %>
+    </p>
+
       <%= link_to fa_icon('pencil', text: 'Edit'), edit_interaction_path(interaction), class: 'btn btn-sm btn-default' %>
       <%= link_to fa_icon('trash-o', text: 'Destroy'), interaction, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
 <hr>

@@ -20,6 +20,10 @@
   <%= @interaction.follow_up_date %>
 </p>
 
+<p><strong>Contact: </strong>
+  <%= link_to @interaction.person.first_name, person_path(@interaction.person_id) %>
+</p>
+
 <br>
 <%= link_to fa_icon('pencil', text: 'Edit'), edit_interaction_path(@interaction), class: 'btn btn-sm btn-default' %>
 <%= link_to fa_icon('chevron-left', text: 'Back'), interactions_path, class: 'btn btn-sm btn-default' %>

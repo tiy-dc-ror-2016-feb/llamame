@@ -32,7 +32,7 @@ end
 
 100.times do |ct|
   ct = ["Cell", "Work", "Home"]
-  PhoneNumber.create(number: FFaker::PhoneNumber.phone_number, phone_numberable_id: rand(1..50), phone_numberable_type: "Person", number_type: ct[rand(0..2)])
+  PhoneNumber.create(number: FFaker::PhoneNumber.short_phone_number, phone_numberable_id: rand(1..50), phone_numberable_type: "Person", number_type: ct[rand(0..2)])
 end
 
 100.times do
@@ -45,7 +45,7 @@ end
 
 25.times do |ct|
   ct = ["Cell", "Work", "Home"]
-  PhoneNumber.create(number: FFaker::PhoneNumber.phone_number, phone_numberable_id: rand(1..25), phone_numberable_type: "Company", number_type: ct[rand(0..2)])
+  PhoneNumber.create(number: FFaker::PhoneNumber.short_phone_number, phone_numberable_id: rand(1..25), phone_numberable_type: "Company", number_type: ct[rand(0..2)])
 end
 
 25.times do
