@@ -12,12 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :number %><br>
-    <%= f.text_field :number %>
-  </div>
+    <%= f.label :number %>:
+    <%= f.text_field :number %><br>
 
-  <div class="field">
-    <%= f.label :number_type %><br>
+    <%= f.label :number_type %>: 
     <%= f.collection_select :number_type, PhoneNumber::NUMBER_TYPES, :first, :last %>
 
   <div class="actions">

@@ -44,7 +44,7 @@ end
 end
 
 100.times do
-  Address.create(address_1: FFaker::AddressUS.street_address, address_2: FFaker::AddressUS.secondary_address, city: FFaker::AddressUS.city, zip_code: FFaker::AddressUS.zip_code, country: FFaker::AddressUS.country, addressable_id: rand(1..100), addressable_type: "Person")
+  Address.create(address_1: FFaker::AddressUS.street_address, city: FFaker::AddressUS.city, state: FFaker::AddressUS.state_abbr, zip_code: FFaker::AddressUS.zip_code, addressable_id: rand(1..100), addressable_type: "Person")
 end
 
 25.times do

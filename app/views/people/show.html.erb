@@ -1,6 +1,7 @@
 <% content_for(:sidebar) do %>
   <%= link_to "Add Email",  new_person_email_path(@person),remote: true, class: "btn btn-primary" %>
   <%= link_to "Add Phone Number",  new_person_phone_number_path(@person),remote: true, class: "btn btn-primary" %>
+  <%= link_to "Add Address",  new_person_address_path(@person),remote: true, class: "btn btn-primary" %>
 <% end %>
 
 
@@ -41,13 +42,17 @@
 <p>
   <strong>Addresses:</strong>
   <% @person.addresses.each do |address| %>
+  <br>
   <%= address.address_1 %>
   <%= address.address_2 %>
-  <%= address.city %>
+  <%= address.city %>,
+  <%= address.state %>
   <%= address.zip_code %>
-  <%= address.country %>
+
   <% end %>
 </p>
+
+<p id="address-form"></p>
 
 <p>
   <strong>Notes:</strong>
