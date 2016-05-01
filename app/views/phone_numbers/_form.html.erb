@@ -15,9 +15,9 @@
     <%= f.label :number %>:
     <%= f.text_field :number %><br>
 
-    <%= f.label :number_type %>: 
+    <%= f.label :number_type %>:
     <%= f.collection_select :number_type, PhoneNumber::NUMBER_TYPES, :first, :last %>
-
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

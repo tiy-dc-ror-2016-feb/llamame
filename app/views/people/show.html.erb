@@ -54,15 +54,6 @@
 
 <p id="address-form"></p>
 
-<p>
-  <strong>Notes:</strong>
-  <% @person.notes.each do |note| %>
-  <%=  note.created_at.strftime("%m/%d") %> :
-  <%= note.body%>
-  <hr>
-  <% end %>
-</p>
-
 <br>
 <%= link_to fa_icon('pencil', text: 'Edit'), edit_person_path(@person), class: 'btn btn-sm btn-default' %>
 <%= link_to fa_icon('chevron-left', text: 'Back'), people_path, class: 'btn btn-sm btn-default' %>
