@@ -1,5 +1,7 @@
 <% content_for(:sidebar) do %>
   <%= link_to "Add Email",  new_person_email_path(@person),remote: true, class: "btn btn-primary" %>
+  <%= link_to "Add Phone Number",  new_person_phone_number_path(@person),remote: true, class: "btn btn-primary" %>
+  <%= link_to "Add Address",  new_person_address_path(@person),remote: true, class: "btn btn-primary" %>
 <% end %>
 
 
@@ -21,9 +23,12 @@
 <p>
   <strong>Phone numbers:</strong>
   <% @person.phone_numbers.each do |phone_number| %>
+  <br><%= phone_number.number_type %>:
   <%= phone_number.number %>
   <% end %>
 </p>
+
+<p id="phone-form"></p>
 
 <p>
   <strong>Email addresses:</strong>
@@ -32,28 +37,22 @@
   <% end %>
 </p>
 
-<p id="email-form">
-</p>
+<p id="email-form"></p>
 
 <p>
   <strong>Addresses:</strong>
   <% @person.addresses.each do |address| %>
+  <br>
   <%= address.address_1 %>
   <%= address.address_2 %>
-  <%= address.city %>
+  <%= address.city %>,
+  <%= address.state %>
   <%= address.zip_code %>
-  <%= address.country %>
+
   <% end %>
 </p>
 
-<p>
-  <strong>Notes:</strong>
-  <% @person.notes.each do |note| %>
-  <%=  note.created_at.strftime("%m/%d") %> :
-  <%= note.body%>
-  <hr>
-  <% end %>
-</p>
+<p id="address-form"></p>
 
 <br>
 <%= link_to fa_icon('pencil', text: 'Edit'), edit_person_path(@person), class: 'btn btn-sm btn-default' %>
