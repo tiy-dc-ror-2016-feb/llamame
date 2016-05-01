@@ -5,7 +5,7 @@ class AddressesController < ApplicationController
   # GET /addresses.json
   def index
     @addressable = Person.find(params[:person_id])
-    @addresss = @addressable.addresss
+    @addresses = @addressable.addresses
 
     respond_to do |format|
       format.html # index.html.erb
