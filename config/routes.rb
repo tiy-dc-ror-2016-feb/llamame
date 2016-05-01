@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root 'dashboard#index'
   resources :people do
     resources :emails, shallow: true
+    resources :addresses, shallow: true
+    resources :phone_numbers, shallow: true
   end
   resources :emails
   resources :interactions

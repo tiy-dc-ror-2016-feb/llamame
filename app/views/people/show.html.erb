@@ -1,5 +1,6 @@
 <% content_for(:sidebar) do %>
   <%= link_to "Add Email",  new_person_email_path(@person),remote: true, class: "btn btn-primary" %>
+  <%= link_to "Add Phone Number",  new_person_phone_number_path(@person),remote: true, class: "btn btn-primary" %>
 <% end %>
 
 
@@ -21,9 +22,12 @@
 <p>
   <strong>Phone numbers:</strong>
   <% @person.phone_numbers.each do |phone_number| %>
+  <br><%= phone_number.number_type %>:
   <%= phone_number.number %>
   <% end %>
 </p>
+
+<p id="phone-form"></p>
 
 <p>
   <strong>Email addresses:</strong>
@@ -32,8 +36,7 @@
   <% end %>
 </p>
 
-<p id="email-form">
-</p>
+<p id="email-form"></p>
 
 <p>
   <strong>Addresses:</strong>
