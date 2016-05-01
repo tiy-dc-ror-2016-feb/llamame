@@ -23,6 +23,36 @@
     <%= f.label :salesperson %><br>
     <%= f.text_area :salesperson %>
   </div>
+
+  <!-- Form for address -->
+  <%= f.fields_for :address do |address_form| %>
+    <div class="field">
+      <%= address_form.label :address_1 %><br>
+      <%= address_form.text_field :address_1 %>
+    </div>
+
+    <div class="field">
+      <%= address_form.label :city %><br>
+      <%= address_form.text_field :city %>
+    </div>
+
+    <div class="field">
+      <%= address_form.label :state %><br>
+      <%= address_form.text_field :state %>
+    </div>
+
+    <div class="field">
+      <%= address_form.label :zip_code %><br>
+      <%= address_form.text_field :zip_code %>
+    </div>
+
+    <div class="field">
+      <%= address_form.label :country %><br>
+      <%= address_form.text_field :country %>
+    </div>
+  <% end %>
+  <!-- Form for address -->
+
   <br>
   <div class="actions">
     <%= f.submit class: "btn btn-success" %>

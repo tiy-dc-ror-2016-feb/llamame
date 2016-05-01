@@ -33,7 +33,8 @@ class AddressesController < ApplicationController
   # POST /addresses
   # POST /addresses.json
   def create
-    @address = Address.new(address_params)
+    # @address = Address.new(address_params)
+    @address = Company.new(author_params)
 
     respond_to do |format|
       if @address.save
