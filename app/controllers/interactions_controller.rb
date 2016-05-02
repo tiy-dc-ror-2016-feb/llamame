@@ -26,7 +26,7 @@ class InteractionsController < ApplicationController
 
   # GET /interactions/new
   def new
-    @interaction = Interaction.new
+    @interaction = Interaction.new(person_id: params["person_id"])
   end
 
   # GET /interactions/1/edit
