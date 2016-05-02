@@ -15,7 +15,7 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
-    @interactions = @person.interactions.order(created_at: :desc).where(user_id: current_user.id)
+    @interactions = @person.interactions.order(created_at: :desc)
 
     respond_to do |format|
       format.html # show.html.erb
