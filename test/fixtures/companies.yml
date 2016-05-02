@@ -6,3 +6,4 @@ one:
 
 two:
   salesperson: MyString
+  name: hello

@@ -4,56 +4,75 @@
   <%= link_to "Add Address",  new_person_address_path(@person),remote: true, class: "btn btn-primary" %>
 <% end %>
 
+<div class = "row">
+  <div class="col-md-6">
+    <h2> Info </h2>
+    <p>
+      <strong>First name:</strong>
+      <%= @person.first_name %>
+    </p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @person.first_name %>
-</p>
+    <p>
+      <strong>Last name:</strong>
+      <%= @person.last_name %>
+    </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @person.last_name %>
-</p>
+    <p>
+      <strong>Company:</strong>
+      <%= @person.company.name %>
+    </p>
 
-<p>
-  <strong>Company:</strong>
-  <%= @person.company.name %>
-</p>
+    <p>
+      <strong>Phone numbers:</strong>
+      <% @person.phone_numbers.each do |phone_number| %>
+      <br><%= phone_number.number_type %>:
+      <%= phone_number.number %>
+      <% end %>
+    </p>
 
-<p>
-  <strong>Phone numbers:</strong>
-  <% @person.phone_numbers.each do |phone_number| %>
-  <br><%= phone_number.number_type %>:
-  <%= phone_number.number %>
-  <% end %>
-</p>
+    <p id="phone-form"></p>
 
-<p id="phone-form"></p>
+    <p>
+      <strong>Email addresses:</strong>
+      <% @person.emails.each do |email| %>
+      <br><%= email.email %>
+      <% end %>
+    </p>
 
-<p>
-  <strong>Email addresses:</strong>
-  <% @person.emails.each do |email| %>
-  <br><%= email.email %>
-  <% end %>
-</p>
+    <p id="email-form"></p>
 
-<p id="email-form"></p>
+    <p>
+      <strong>Addresses:</strong>
+      <% @person.addresses.each do |address| %>
+      <br>
+      <%= address.address_1 %>
+      <%= address.address_2 %>
+      <%= address.city %>,
+      <%= address.state %>
+      <%= address.zip_code %>
 
-<p>
-  <strong>Addresses:</strong>
-  <% @person.addresses.each do |address| %>
-  <br>
-  <%= address.address_1 %>
-  <%= address.address_2 %>
-  <%= address.city %>,
-  <%= address.state %>
-  <%= address.zip_code %>
+      <% end %>
+    </p>
 
-  <% end %>
-</p>
+  <p id="address-form"></p>
 
-<p id="address-form"></p>
-
-<br>
 <%= link_to fa_icon('pencil', text: 'Edit'), edit_person_path(@person), class: 'btn btn-sm btn-default' %>
 <%= link_to fa_icon('chevron-left', text: 'Back'), people_path, class: 'btn btn-sm btn-default' %>
+</div>
+
+<div class="col-md-6">
+  <h2> Interactions </h2>
+      <% @interactions.each do |interaction| %>
+      <hr>
+      <p>
+      <strong>Topic:</strong>
+      <%= interaction.topic %>
+      <p>
+      <strong>By:</strong>
+      <%= interaction.medium %>
+      <p>
+      <strong>Details:</strong>
+      <%= truncate interaction.details, :length => 50 %>
+      <%= link_to fa_icon('eye', text: 'More...'), interaction, class: 'btn btn-sm btn-default' %>
+      <% end %>
+</div>

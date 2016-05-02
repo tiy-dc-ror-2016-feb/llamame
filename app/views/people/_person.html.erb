@@ -1,6 +1,7 @@
 <tr>
   <td><%= person.first_name %></td>
   <td><%= person.last_name %></td>
+  <td><%= person.company.name if person.company %></td>
   <td>
     <%= link_to fa_icon('eye', text: 'Show'), person, class: 'btn btn-sm btn-default' %>
     <%= link_to fa_icon('pencil', text: 'Edit'), edit_person_path(person), class: 'btn btn-sm btn-default' %>
