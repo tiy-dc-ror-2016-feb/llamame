@@ -1,9 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  salesperson: MyString
-  name: Superheros
+  name: Superheroes
 
 two:
-  salesperson: MyString
   name: Samsung
