@@ -2,15 +2,23 @@
 <%= link_to "Add Interaction",  new_interaction_path, class: "btn btn-primary" %>
 <% end %>
 
-<p>
-    <h2><%= "#{@person.first_name} #{@person.last_name} (#{@person.company.name})" %></h2>
-</p>
-<hr>
+<div class="page-header">
+  <h2>
+    <%= "#{@person.first_name} #{@person.last_name} (#{@person.company.name})" %>
+    <small>
+      <%= link_to fa_icon('pencil', text: 'Edit'), edit_person_path(@person), class: 'btn btn-sm btn-default' %>
+      <%= link_to fa_icon('chevron-left', text: 'Back'), people_path, class: 'btn btn-sm btn-default' %>
+    </small>
+  </h2>
+</div>
+
 <div class="row">
 
-    <div class="col-md-4">
-        <h4>Phone numbers:
-            <%= link_to "+",  new_person_phone_number_path(@person),remote: true, class: "btn btn-primary" %></h4>
+    <div class="col-md-3">
+        <h4>
+          Phone
+          <%= link_to "+",  new_person_phone_number_path(@person), remote: true %>
+        </h4>
         <% @person.phone_numbers.each do |phone_number| %>
         <br><%= phone_number.number_type %>:
         <%= phone_number.number %>
@@ -20,17 +28,21 @@
     </div>
 
     <div class="col-md-4">
-        <h4>Email addresses:
-            <%= link_to "+",  new_person_email_path(@person),remote: true, class: "btn btn-primary" %></h4>
+        <h4>
+          Email
+          <%= link_to "+",  new_person_email_path(@person), remote: true %>
+        </h4>
         <% @person.emails.each do |email| %>
         <br><%= email.email %>
         <% end %>
         <p id="email-form"></p>
     </div>
 
-    <div class="col-md-4">
-        <h4>Addresses:
-            <%= link_to "+",  new_person_address_path(@person),remote: true, class: "btn btn-primary" %></h4>
+    <div class="col-md-5">
+        <h4>
+          Address
+          <%= link_to "+",  new_person_address_path(@person), remote: true %>
+        </h4>
         <% @person.addresses.each do |address| %>
         <br>
         <%= address.address_1 %>
@@ -41,14 +53,7 @@
         <% end %>
         <p id="address-form"></p>
     </div>
-
-    <div>
-        <h2>
-            Interactions
-        </h2>
-        <%= render partial: "people/interaction.html.erb", collection:  @interactions %>
-    </p>
 </div>
 
-<%= link_to fa_icon('pencil', text: 'Edit'), edit_person_path(@person), class: 'btn btn-sm btn-default' %>
-<%= link_to fa_icon('chevron-left', text: 'Back'), people_path, class: 'btn btn-sm btn-default' %>
+<h2> Interactions </h2>
+<%= render partial: "people/interaction", collection:  @interactions %>
