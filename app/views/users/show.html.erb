@@ -15,6 +15,26 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <strong>Interactions:</strong>
+  <% @user.interactions.each do |interaction| %>
+  <p>Interaction with:
+    <%= interaction.person.first_name + " " + interaction.person.last_name %>
+  </p>
+  <p>
+    <%= interaction.topic %>
+  <p>Interaction medium:
+    <%= interaction.medium %>
+  </p>
+  <p>Follow up date:
+    <%= interaction.follow_up_date %>
+  </p>
+  <p>Interaction created at:
+    <%= interaction.created_at %>
+  </p>
+  <% end %>
+</p>
+
 <div id='bottom-nav'>
   <div class="col-sm-3">
     <%= link_to fa_icon('pencil', text: 'Edit'), edit_user_path(@user), class: 'btn btn-sm btn-default' %>
