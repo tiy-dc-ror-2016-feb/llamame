@@ -14,7 +14,7 @@
 end
 
 25.times do
-  Company.create(name: FFaker::Company.name, salesperson: FFaker::Name.name)
+  Company.create(name: FFaker::Company.name, user_id: rand(1..20))
 end
 
 50.times do
