@@ -21,6 +21,64 @@
       </button>
     </div>
   </div>
+
+
+
+  <div class="row" id="dashboard-button-group">
+    <div class="col-md-6 col-md-offset-3">
+      <button type="button" class="btn btn-default btn-lg btn-block" id="followups-needed-btn">
+        <div class="button-content">
+          <h1><%= @followups.count %></h1>
+          <p><%= "Followup".pluralize(@followups.count) %> Needed</p>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <div class="panel panel-primary" id="followups-needed-panel">
+    <div class="panel-heading"><h4>Followups Needed Within the Next 24 hours</h4></div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Follow Up Date</th>
+          <th>Salesperson</th>
+          <th>Contact</th>
+      </tr>
+        <tbody>
+          <% @followups.each do |interaction| %>
+            <tr>
+              <td><%= link_to interaction.topic, interaction %></td>
+              <td>
+                <%= interaction.updated_at.strftime("%a, %m/%d") %><br>
+                <%= interaction.updated_at.strftime("%I:%M %p") %>
+              </td>
+              <td><%= link_to interaction.user.first_name, user_path(interaction.user.id) %> </td>
+              <td><%= link_to interaction.person.full_name, person_path(interaction.person.id) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </thead>
+    </table>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <% end %>
 
 <% unless current_user.is_a_boss %>
