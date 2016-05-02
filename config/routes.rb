@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :addresses, shallow: true
     resources :phone_numbers, shallow: true
   end
+  resources :emails
+  resources :addresses
+  resources :phone_numbers
   resources :interactions
   resources :companies
   scope 'admin' do
