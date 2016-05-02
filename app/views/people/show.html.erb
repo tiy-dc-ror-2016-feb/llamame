@@ -1,5 +1,5 @@
 <% content_for(:sidebar) do %>
-<%= link_to "Add Interaction",  new_interaction_path, class: "btn btn-primary" %>
+<%= link_to "Add Interaction",  new_interaction_path(person_id: @person.id), class: "btn-block btn btn-success", remote: true %>
 <% end %>
 
 <div class="page-header">
@@ -56,4 +56,7 @@
 </div>
 
 <h2> Interactions </h2>
+
+<div id="interaction-form"></div>
+
 <%= render partial: "people/interaction", collection:  @interactions %>
