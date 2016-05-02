@@ -53,13 +53,6 @@ module DashboardHelper
   end
 
   def total_word_count
-    interactions = Interaction.all
-    words_array = []
-    interactions.each do |interaction|
-      interaction = interaction.details.split
-      words_array.push(interaction)
-    end
-    words_array.flatten.count
+    Interaction.pluck(:details).join(" ").split.size
   end
-
 end
