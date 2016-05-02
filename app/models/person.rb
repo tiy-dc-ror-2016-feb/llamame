@@ -8,4 +8,8 @@ class Person < ActiveRecord::Base
   accepts_nested_attributes_for :emails
   accepts_nested_attributes_for :phone_numbers
   accepts_nested_attributes_for :addresses
+
+  def full_name
+    [first_name , last_name].join(" ")
+  end
 end

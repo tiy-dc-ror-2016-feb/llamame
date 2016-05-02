@@ -29,7 +29,7 @@
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag %>
-  
+
     <%= javascript_include_tag "application" %>
 
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.js'></script>
@@ -62,21 +62,11 @@
                 <li><%= link_to "Sign In", "/users/sign_in"  %></li>
               <% end %>
           </ul>
-          <!-- company search bar -->
-          <div class="col-sm-4 col-md-8 pull-right">
+          <div class="col-sm-6 col-md-6 pull-right">
               <form class="navbar-form" role="search">
                   <!-- company search bar -->
                   <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Find Companies" name="q">
-                      <div class="input-group-btn">
-                          <button class="btn btn-default" type="submit">
-                              <%= fa_icon(:search) %>
-                          </button>
-                      </div>
-                  </div>
-                  <!-- people search bar -->
-                  <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Find People" name="q">
+                      <input type="text" class="form-control" placeholder="Search" name="q">
                       <div class="input-group-btn">
                           <button class="btn btn-default" type="submit">
                               <%= fa_icon(:search) %>
@@ -94,15 +84,15 @@
       <div class="row">
         <div class="col-lg-3">
           <div class="well sidebar-nav">
-              <ul class="nav nav-list">
+              <ul class="nav nav-list" id="main-nav">
                 <% if current_user %>
                   <% if current_user.is_a_boss %>
                     <li><%= link_to "Users", "/admin/users"  %></li>
                   <% end %>
                 <% end %>
-                <li><%= link_to "Companies", "/companies"  %></li>
-                <li><%= link_to "People", "/people"  %></li>
-                <li><%= link_to "Interactions", "/interactions"  %></li>
+                <li><div class="nav-item-container"><div class="nav-icon"><%= fa_icon(:suitcase) %></div><%= link_to "Companies", "/companies"  %></div></li>
+                <li><div class="nav-item-container"><div class="nav-icon" id="icon-people"><%= fa_icon(:user) %></div><%= link_to "People", "/people"  %></div></li>
+                <li><div class="nav-item-container"><div class="nav-icon" id="icon-form"><%= fa_icon(:wpforms) %></div><%= link_to "Interactions", "/interactions"  %></div></li>
               </ul>
             <%= yield(:sidebar) if content_for?(:sidebar) %>
           </div><!--/.well -->

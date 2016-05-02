@@ -12,7 +12,7 @@ $( document ).ready( function() {
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v8',
         center: [ -98.583333, 39.833333 ],
-        zoom: 3
+        zoom: 2
     } );
     var currentAddress = window.companyAddresses[0];
     var addressComponents = [];
@@ -25,7 +25,7 @@ $( document ).ready( function() {
     $.get( "https://api.mapbox.com/geocoding/v5/mapbox.places/" + encodeURI(addressComponents.join(" ")) + ".json?&access_token=pk.eyJ1IjoibmJiMTI4MDUiLCJhIjoiMUlFVjZWVSJ9.jeNyiaRq8MCHlXSlGQZIHA", function( data ) {
         console.log( data );
 
-        var latLng = data.features[0].center
+        var latLng = data.features[0].center;
 
         map.on( 'load', function() {
             map.addSource( "markers", {
