@@ -16,19 +16,23 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @company = Company.find(params[:id])
+
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @company }
+      format.json { render json: @company.addresses }
     end
   end
 
   # GET /companies/new
   def new
     @company = Company.new
+    @company.addresses.build
   end
 
   # GET /companies/1/edit
   def edit
+    @company = Company.find(params[:id])
   end
 
   # POST /companies
@@ -73,12 +77,13 @@ class CompaniesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_company
-      @company = Company.find(params[:id])
-    end
+  def set_company
+    @company = Company.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def company_params
-      params.require(:company).permit(:name, :user_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def company_params
+    params.require(:company).permit(:name, :user_id, addresses_attributes: [:address_1, :address_2, :address_3, :city, :state, :zip_code, :country, :addressable_id, :addressable_type])
+  end
+
 end

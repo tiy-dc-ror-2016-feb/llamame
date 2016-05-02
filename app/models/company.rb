@@ -4,6 +4,7 @@ class Company < ActiveRecord::Base
   has_many :emails, as: :emailable
   has_many :addresses, as: :addressable
   has_many :notes, as: :noteable
+  accepts_nested_attributes_for :addresses
 
   def self.search(search)
     where("name LIKE ?", "%#{search}%")

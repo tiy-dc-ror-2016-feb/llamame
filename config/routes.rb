@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  resources :addresses
-  resources :phone_numbers
   devise_for :users
   root 'dashboard#index'
-  resources :people, shallow: true do
-    resources :emails
+  resources :people do
+    resources :emails, shallow: true
+    resources :addresses, shallow: true
+    resources :phone_numbers, shallow: true
   end
   resources :interactions
-  resources :emails
   resources :companies
   scope 'admin' do
     resources :users

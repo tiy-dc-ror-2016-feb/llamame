@@ -4,7 +4,10 @@ class InteractionsController < ApplicationController
   # GET /interactions
   # GET /interactions.json
   def index
-    @interactions = Interaction.all.order(created_at: :desc).page(params[:page])
+    @interactions = Interaction.all.order(created_at: :desc).page(params[:page]).where(user_id: current_user.id)
+    if current_user.is_a_boss
+      @interactions = Interaction.all.order(created_at: :desc).page(params[:page])
+    end
 
     respond_to do |format|
       format.html # index.html.erb

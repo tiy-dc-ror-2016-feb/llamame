@@ -27,6 +27,18 @@
     <%= f.label :follow_up_date %><br>
     <%= f.datetime_select :follow_up_date, as: :datepicker %>
   </div>
+  <div class="field">
+    <%= f.label :person %><br>
+    <%= f.select(
+      :person_id,
+      options_from_collection_for_select(
+      Person.all,
+      :id,
+      :first_name
+      )
+    ) %>
+  </div>
+
   <br>
   <div class="actions">
     <%= f.submit class: "btn btn-success" %>
