@@ -1,5 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+</div>
+=======
+<p>
+  <strong>First name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Email address:</strong>
+  <%= @user.email %>
+</p>
+
 <div id='bottom-nav'>
   <div class="col-sm-3">
     <%= link_to fa_icon('pencil', text: 'Edit'), edit_user_path(@user), class: 'btn btn-sm btn-default' %>

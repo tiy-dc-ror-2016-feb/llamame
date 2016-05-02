@@ -5,5 +5,7 @@ class Person < ActiveRecord::Base
   has_many :addresses, as: :addressable
   has_many :notes, as: :noteable
   has_many :interactions
-
+  accepts_nested_attributes_for :emails
+  accepts_nested_attributes_for :phone_numbers
+  accepts_nested_attributes_for :addresses
 end
