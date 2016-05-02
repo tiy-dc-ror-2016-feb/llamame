@@ -108,7 +108,10 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="col-lg-9">
-          <%= bootstrap_flash %>
+          <div class="flash-messages">
+            <%= bootstrap_flash %>
+          </div>
+
           <%= yield %>
         </div>
       </div><!--/row-->

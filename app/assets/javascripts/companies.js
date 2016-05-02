@@ -2,6 +2,11 @@
 
 $( document ).ready( function() {
     // Generate map
+    //
+    if ($(".map-container").length > 0 ) {
+
+
+    //
     mapboxgl.accessToken = 'pk.eyJ1IjoibmJiMTI4MDUiLCJhIjoiMUlFVjZWVSJ9.jeNyiaRq8MCHlXSlGQZIHA';
     var map = new mapboxgl.Map( {
         container: 'map',
@@ -58,7 +63,7 @@ $( document ).ready( function() {
 
     // Add point to map as a geojson
 
-
+  }
 } );
 
 
