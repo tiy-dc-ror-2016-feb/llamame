@@ -33,6 +33,7 @@ group :test do
   gem "codeclimate-test-reporter", require: nil
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'database_cleaner'
 end
 
 group :production do
