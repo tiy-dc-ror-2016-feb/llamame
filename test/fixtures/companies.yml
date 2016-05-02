@@ -2,8 +2,8 @@
 
 one:
   salesperson: MyString
-  name: company_name
+  name: Superheros
 
 two:
   salesperson: MyString
-  name: hello
+  name: Samsung

@@ -1,11 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
-  emailable_id: 1
-  emailable_type: MyString
+  email: abc@sam.com
+
 
 two:
-  email: MyString
-  emailable_id: 1
-  emailable_type: MyString
+  email: def@abc.com
