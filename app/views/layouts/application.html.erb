@@ -82,29 +82,28 @@
     <div class="row">
       <div class="col-lg-3">
         <div class="well sidebar-nav">
-          <ul class="nav nav-list">
-            <% if current_user %>
-            <% if current_user.is_a_boss %>
-            <li><%= link_to "Users", "/admin/users"  %></li>
-            <% end %>
-            <% end %>
-            <li><%= link_to "Companies", "/companies"  %></li>
-            <li><%= link_to "People", "/people"  %></li>
-            <li><%= link_to "Interactions", "/interactions"  %></li>
-          </ul>
+            <ul class="nav nav-list" id="main-nav">
+              <% if current_user %>
+                <% if current_user.is_a_boss %>
+                  <li><%= link_to "Users", "/admin/users"  %></li>
+                <% end %>
+              <% end %>
+              <li><div class="nav-item-container"><div class="nav-icon"><%= fa_icon(:suitcase) %></div><%= link_to "Companies", "/companies"  %></div></li>
+              <li><div class="nav-item-container"><div class="nav-icon" id="icon-people"><%= fa_icon(:user) %></div><%= link_to "People", "/people"  %></div></li>
+              <li><div class="nav-item-container"><div class="nav-icon" id="icon-form"><%= fa_icon(:wpforms) %></div><%= link_to "Interactions", "/interactions"  %></div></li>
+            </ul>
           <%= yield(:sidebar) if content_for?(:sidebar) %>
-        </div>
-        <!--/.well -->
-      </div>
-      <!--/span-->
+        </div><!--/.well -->
+      </div><!--/span-->
       <div class="col-lg-9">
         <div class="flash-messages">
           <%= bootstrap_flash %>
         </div>
 
-        <%= yield %>
+          <%= yield %>
+
+        </div>
       </div>
-    </div>
     <!--/row-->
     <footer>
       <p>&copy; Llamame 2016</p>
