@@ -31,6 +31,8 @@ end
 
 group :test do
   gem "codeclimate-test-reporter", require: nil
+  gem "capybara"
+  gem "selenium-webdriver"
 end
 
 group :production do
