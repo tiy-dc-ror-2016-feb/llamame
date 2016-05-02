@@ -69,7 +69,7 @@ class InteractionsController < ApplicationController
   def destroy
     @interaction.destroy
     respond_to do |format|
-      format.html { redirect_to interactions_url }
+      format.html { redirect_to interactions_path }
       format.json { head :no_content }
     end
   end
