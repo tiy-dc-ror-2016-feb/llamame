@@ -1,0 +1,14 @@
+
+<hr>
+<p>
+    <strong>Topic:</strong>
+    <%= interaction.topic %>
+</p>
+<p>
+    <strong>By:</strong>
+    <%= interaction.medium %>
+</p>
+<p>
+    <strong>Details:</strong>
+    <%= truncate interaction.details, :length => 50 %>
+    <%= link_to fa_icon('eye', text: 'More...'), interaction, class: 'btn btn-sm btn-default' %>
