@@ -15,7 +15,8 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
-    @company = Company.new
+    @interactions = @person.interactions.order(created_at: :desc).where(user_id: current_user.id)
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @person }

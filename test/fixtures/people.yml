@@ -6,10 +6,11 @@ one:
   company: one
 
 two:
-  first_name: MyString
-  last_name: MyString
+  first_name: Scrooge
+  last_name: McDuck
   company: two
 
 two:
-  first_name: MyString
-  last_name: MyString
+  first_name: Llama
+  last_name: Land
+  company: one
