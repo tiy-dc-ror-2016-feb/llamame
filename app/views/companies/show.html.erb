@@ -3,6 +3,10 @@
 <h2><%= @company.name %></h2>
 
 <div class="map-container">
+  <script type="text/javascript">
+    window.companyAddresses = <%= raw @company.addresses.to_json %>;
+  </script>
+
   <div id="map"></div>
 </div>
 
