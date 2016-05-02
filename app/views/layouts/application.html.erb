@@ -29,7 +29,7 @@
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag %>
-  
+
     <%= javascript_include_tag "application" %>
 
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.js'></script>
@@ -62,21 +62,11 @@
                 <li><%= link_to "Sign In", "/users/sign_in"  %></li>
               <% end %>
           </ul>
-          <!-- company search bar -->
-          <div class="col-sm-4 col-md-8 pull-right">
+          <div class="col-sm-6 col-md-6 pull-right">
               <form class="navbar-form" role="search">
                   <!-- company search bar -->
                   <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Find Companies" name="q">
-                      <div class="input-group-btn">
-                          <button class="btn btn-default" type="submit">
-                              <%= fa_icon(:search) %>
-                          </button>
-                      </div>
-                  </div>
-                  <!-- people search bar -->
-                  <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Find People" name="q">
+                      <input type="text" class="form-control" placeholder="Search" name="q">
                       <div class="input-group-btn">
                           <button class="btn btn-default" type="submit">
                               <%= fa_icon(:search) %>
