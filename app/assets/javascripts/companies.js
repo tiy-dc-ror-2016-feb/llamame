@@ -12,7 +12,7 @@ $( document ).ready( function() {
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v8',
         center: [ -98.583333, 39.833333 ],
-        zoom: 3
+        zoom: 2
     } );
     var currentAddress = window.companyAddresses[0];
     var addressComponents = [];
