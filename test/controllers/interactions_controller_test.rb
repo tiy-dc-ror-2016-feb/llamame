@@ -22,10 +22,10 @@ class InteractionsControllerTest < ActionController::TestCase
 
   test "should create interaction" do
     assert_difference('Interaction.count') do
-      post :create, interaction: { details: @interaction.details, follow_up_date: @interaction.follow_up_date, medium: @interaction.medium, topic: @interaction.topic }
+      post :create, interaction: { details: @interaction.details, follow_up_date: @interaction.follow_up_date, medium: @interaction.medium, topic: @interaction.topic, person_id: @interaction.person_id }
     end
 
-    assert_redirected_to interaction_path(assigns(:interaction))
+    assert_redirected_to person_path(id: @interaction.person_id)
   end
 
   test "should show interaction" do
