@@ -87,7 +87,9 @@
               <ul class="nav nav-list" id="main-nav">
                 <% if current_user %>
                   <% if current_user.is_a_boss %>
-                    <li><%= link_to "Users", "/admin/users"  %></li>
+                    <li>
+                      <div class="nav-item-container"><div class="nav-icon"><%= fa_icon(:male) %></div><%= link_to "Users", "/admin/users"%><div class="nav-icon"><%= fa_icon(:female) %></div></div>
+                    </li>
                   <% end %>
                 <% end %>
                 <li><div class="nav-item-container"><div class="nav-icon"><%= fa_icon(:suitcase) %></div><%= link_to "Companies", "/companies"  %></div></li>

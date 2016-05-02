@@ -33,6 +33,10 @@ class PeopleController < ApplicationController
 
   # GET /people/1/edit
   def edit
+    @person = Person.find(params["id"])
+    @person.emails.build if @person.emails.empty?
+    @person.phone_numbers.build if @person.empty?
+    @person.addresses.build if @person.addresses.empty?
   end
 
   # POST /people
