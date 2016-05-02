@@ -5,18 +5,16 @@
 
     <p>
       <strong>Medium:</strong>
-      <%= interaction.medium %>
+      <%= icon_type(interaction.medium) %>
+    </p>
+
+    <p>
+      <%= time_ago_in_words(Time.now) + " ago" %>
     </p>
 
     <p>
       <strong>Details:</strong>
       <%= truncate interaction.details, :length => 80 %>
-      <%= link_to fa_icon('eye', text: 'Click for more...'), interaction, class: 'btn btn-sm btn-default' %>
-    </p>
-
-    <p>
-      <strong>Date of interaction:</strong>
-      <%= interaction.created_at.strftime("%m/%d/%y") %>
     </p>
 
     <p>
@@ -30,6 +28,7 @@
       <%= link_to "#{interaction.user.first_name} #{interaction.user.last_name}", user_path(interaction.user_id) %>
     </p>
 
+      <%= link_to fa_icon('eye', text: 'Click for more...'), interaction, class: 'btn btn-sm btn-default' %>
       <%= link_to fa_icon('pencil', text: 'Edit'), edit_interaction_path(interaction), class: 'btn btn-sm btn-default' %>
       <%= link_to fa_icon('trash-o', text: 'Destroy'), interaction, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
 <hr>
