@@ -35,7 +35,7 @@ class PeopleController < ApplicationController
   def edit
     @person = Person.find(params["id"])
     @person.emails.build if @person.emails.empty?
-    @person.phone_numbers.build if @person.empty?
+    @person.phone_numbers.build if @person.phone_numbers.empty?
     @person.addresses.build if @person.addresses.empty?
   end
 
