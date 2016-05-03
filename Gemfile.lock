@@ -114,8 +114,22 @@ GEM
     mime-types-data (3.2016.0221)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    minitest-capybara (0.7.2)
+      capybara (~> 2.2)
+      minitest (~> 5.0)
+      rake
     minitest-focus (1.1.2)
       minitest (>= 4, < 6)
+    minitest-metadata (0.5.3)
+      minitest (>= 4.7, < 6.0)
+    minitest-rails (2.2.0)
+      minitest (~> 5.7)
+      railties (~> 4.1)
+    minitest-rails-capybara (2.1.1)
+      capybara (~> 2.0)
+      minitest-capybara (~> 0.7.0)
+      minitest-metadata (~> 0.5.0)
+      minitest-rails (~> 2.1)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
@@ -221,7 +235,6 @@ DEPENDENCIES
   active_model_serializers
   better_errors
   binding_of_caller
-  capybara
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   database_cleaner
@@ -232,6 +245,7 @@ DEPENDENCIES
   jquery-ui-rails
   kaminari
   minitest-focus
+  minitest-rails-capybara
   pg
   pry
   pry-rails
