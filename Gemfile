@@ -26,13 +26,14 @@ group :test, :development do
   gem "ffaker"
   gem "sqlite3"
   gem "pry"
-  gem "minitest-focus"
 end
 
 group :test do
   gem "codeclimate-test-reporter", require: nil
-  gem "capybara"
   gem "selenium-webdriver"
+  gem "database_cleaner"
+  gem "minitest-focus"
+  gem "minitest-rails-capybara"
 end
 
 group :production do
