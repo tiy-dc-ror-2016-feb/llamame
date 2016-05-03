@@ -2,6 +2,21 @@
   <%= link_to 'New User', new_user_path, class: "btn btn-success btn-block"%>
 <% end %>
 
+<div id='report'>
+  <div class="container">
+    <div class="col-md-3">
+      <button type="button" class="nohover btn btn-default btn-lg btn-block">
+        <!-- <div class="button-content"> -->
+          <h4>Download Staff Report</h4>
+            <%= link_to "CSV", staff_report_users_path(format: "csv"), method: "get" %>
+            |
+            <%= link_to "Excel", staff_report_users_path(format: 'xls'), method: "get" %></h2>
+        <!-- </div> -->
+      </button>
+    </div>
+  </div>
+</div>
+
 <h1>
   <%= fa_icon(:male) %>
   Users
