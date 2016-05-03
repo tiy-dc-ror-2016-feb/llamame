@@ -61,7 +61,7 @@
             <% end %>
           </ul>
           <div class="col-sm-6 col-md-6 pull-right">
-            <form class="navbar-form" role="search">
+            <form id="search" class="navbar-form" role="search" action="/search">
               <!-- company search bar -->
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search" name="q">
@@ -90,7 +90,7 @@
                     </li>
                   <% end %>
                 <% end %>
-              
+
               <li><div class="nav-item-container"><div class="nav-icon"><%= fa_icon(:suitcase) %></div><%= link_to "Companies", "/companies"  %></div></li>
               <li><div class="nav-item-container"><div class="nav-icon" id="icon-people"><%= fa_icon(:user) %></div><%= link_to "People", "/people"  %></div></li>
               <li><div class="nav-item-container"><div class="nav-icon" id="icon-form"><%= fa_icon(:wpforms) %></div><%= link_to "Interactions", "/interactions"  %></div></li>
