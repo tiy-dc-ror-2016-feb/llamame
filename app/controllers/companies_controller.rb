@@ -33,6 +33,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1/edit
   def edit
     @company = Company.find(params[:id])
+    @company.addresses.build if @company.addresses.empty?
   end
 
   # POST /companies
