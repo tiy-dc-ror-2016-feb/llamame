@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action do |controller|
+    unless current_user.is_a_boss
+      flash[:error] = "Ya'll aren't allowed here!"
+      redirect_to root_path
+    end
+  end
 
   # GET /users
   # GET /users.json

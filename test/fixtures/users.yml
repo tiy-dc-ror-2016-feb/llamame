@@ -8,6 +8,7 @@
 user_1:
   email: sam@sam.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'passw0rd!') %>
+  is_a_boss: true
 
 user_2:
   email: sam1@sam.com
