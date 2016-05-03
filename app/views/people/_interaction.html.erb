@@ -1,9 +1,9 @@
 <hr>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
+    <div class="panel-heading" role="tab" id="heading">
       <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <a role="button" data-toggle="collapse" data-target="#<%= dom_id(interaction) %>" data-parent="#accordion" aria-expanded="false" aria-controls="collapse">
           <div class="row">
             <div class="col-md-8">
               <strong><%= interaction.topic  %></strong>
@@ -14,21 +14,22 @@
                   <%= interaction.user.full_name %>
                   <%= icon_type(interaction.medium) %>
                   <%= time_ago_in_words(Time.now) + " ago" %>
-                </small>  
+                </small>
               </div>
             </div>
           </div>
         </a>
       </h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <%= content_tag_for(:div, interaction, class: 'panel-collapse collapse in') do %>
       <div class="panel-body">
         <strong>Details:</strong>
         <%= interaction.details %>
-          <div>
-            <%= link_to fa_icon('pencil', text: 'Edit'), edit_interaction_path(interaction), class: 'btn btn-sm btn-default' %>
-            <%= link_to fa_icon('trash-o', text: 'Destroy'), interaction, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
-          </div>
+        <div>
+          <%= link_to fa_icon('pencil', text: 'Edit'), edit_interaction_path(interaction), class: 'btn btn-sm btn-default' %>
+          <%= link_to fa_icon('trash-o', text: 'Destroy'), interaction, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
         </div>
       </div>
-    </div>
+    <% end %>
+  </div>
+</div>
