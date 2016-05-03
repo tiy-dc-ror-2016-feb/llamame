@@ -5,7 +5,6 @@ class InteractionFormTest < ActionDispatch::IntegrationTest
     login_as users(:user_1), scope: :user
   end
 
-  focus
   test "add an interaction from a person's page" do
     visit root_path
 
@@ -24,7 +23,7 @@ class InteractionFormTest < ActionDispatch::IntegrationTest
     click_button("Create Interaction")
 
     within ".flash-messages" do
-      assert page.has_content?("Success")
+      assert page.has_content?("Interaction was successfully created.")
     end
   end
 end
