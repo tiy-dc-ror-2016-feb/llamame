@@ -5,10 +5,12 @@
 <div class="page-header">
   <h2>
     <%= "#{@person.first_name} #{@person.last_name} (#{@person.company.name})" %>
-    <small>
-      <%= link_to fa_icon('pencil', text: 'Edit'), edit_person_path(@person), class: 'btn btn-sm btn-default' %>
-      <%= link_to fa_icon('chevron-left', text: 'Back'), people_path, class: 'btn btn-sm btn-default' %>
-    </small>
+      <div>
+      <small>
+        <%= link_to fa_icon('chevron-left', text: 'Back'), people_path, class: 'btn btn-sm btn-default' %>
+        <%= link_to fa_icon('pencil', text: 'Edit'), edit_person_path(@person), class: 'btn btn-sm btn-default' %>
+      </small>
+    </div>
   </h2>
 </div>
 

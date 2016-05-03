@@ -4,4 +4,3 @@ class PhoneNumber < ActiveRecord::Base
 
   validates :number_type, inclusion: { in: NUMBER_TYPES.keys.map(&:to_s) }
 end
-``

@@ -2,10 +2,7 @@ require 'test_helper'
 
 class DashboardNavigationTest < ActionDispatch::IntegrationTest
   setup do
-    visit new_user_session_path
-    fill_in("Email", with: "sam@sam.com")
-    fill_in("Password", with: "passw0rd!")
-    click_button("Log in")
+    login_as users(:user_1), scope: :user
   end
 
   test "can view interactions in the past 24 hours" do
