@@ -1,19 +1,34 @@
 <hr>
-<div class="row">
-  <div class="">
-  <h3>
-    <%= interaction.topic  %>
-  </h3>
-</div>
-  <strong>Salesperson:</strong>
-  <%= interaction.user.full_name %>
-  <%= icon_type(interaction.medium) %>
-  <%= time_ago_in_words(Time.now) + " ago" %>  
-</div>
-
-<p>
-  <strong>Details:</strong>
-  <%= interaction.details %>
-</p>
-<%= link_to fa_icon('pencil', text: 'Edit'), edit_interaction_path(interaction), class: 'btn btn-sm btn-default' %>
-<%= link_to fa_icon('trash-o', text: 'Destroy'), interaction, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <div class="row">
+            <div class="col-md-8">
+              <strong><%= interaction.topic  %></strong>
+            </div>
+            <div class="col-md-4">
+              <div class="text-right">
+                <small>
+                  <%= interaction.user.full_name %>
+                  <%= icon_type(interaction.medium) %>
+                  <%= time_ago_in_words(Time.now) + " ago" %>
+                </small>  
+              </div>
+            </div>
+          </div>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <strong>Details:</strong>
+        <%= interaction.details %>
+          <div>
+            <%= link_to fa_icon('pencil', text: 'Edit'), edit_interaction_path(interaction), class: 'btn btn-sm btn-default' %>
+            <%= link_to fa_icon('trash-o', text: 'Destroy'), interaction, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+          </div>
+        </div>
+      </div>
+    </div>
