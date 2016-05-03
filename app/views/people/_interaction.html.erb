@@ -1,16 +1,19 @@
 <hr>
+<div class="row">
+  <div class="">
+  <h3>
+    <%= interaction.topic  %>
+  </h3>
+</div>
+  <strong>Salesperson:</strong>
+  <%= interaction.user.full_name %>
+  <%= icon_type(interaction.medium) %>
+  <%= time_ago_in_words(Time.now) + " ago" %>  
+</div>
+
 <p>
-    <strong>Topic:</strong>
-    <%= interaction.topic %>
+  <strong>Details:</strong>
+  <%= interaction.details %>
 </p>
-<p>
-    <strong>By:</strong>
-    <%= interaction.medium %>
-</p>
-<p>
-    <strong>Details:</strong>
-    <%= truncate interaction.details, :length => 50 %>
-    <%= link_to fa_icon('eye', text: 'More...'), interaction, class: 'btn btn-sm btn-default' %>
-    <%= link_to fa_icon('pencil', text: 'Edit'), edit_interaction_path(interaction), class: 'btn btn-sm btn-default' %>
-    <%= link_to fa_icon('trash-o', text: 'Destroy'), interaction, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
-</p>
+<%= link_to fa_icon('pencil', text: 'Edit'), edit_interaction_path(interaction), class: 'btn btn-sm btn-default' %>
+<%= link_to fa_icon('trash-o', text: 'Destroy'), interaction, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
