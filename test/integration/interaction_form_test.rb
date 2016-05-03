@@ -8,7 +8,6 @@ class InteractionFormTest < ActionDispatch::IntegrationTest
     click_button("Log in")
   end
 
-  focus
   test "add an interaction from a person's page" do
     visit root_path
 
@@ -25,8 +24,5 @@ class InteractionFormTest < ActionDispatch::IntegrationTest
     fill_in("Details", :with => "We talked about the 5 year forecast.")
     fill_in("Follow up date", :with => "01/01/2001")
     click_button("Create Interaction")
-
-    sleep(5)
-    binding.pry
   end
 end
