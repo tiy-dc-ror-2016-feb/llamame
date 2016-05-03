@@ -11,37 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
 
   <!-- Form for address -->
   <%= f.fields_for :addresses do |address_form| %>
-    <div class="field">
+    <div class="form-group">
       <%= address_form.label :address_1 %><br>
-      <%= address_form.text_field :address_1 %>
+      <%= address_form.text_field :address_1, class: "form-control" %>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= address_form.label :city %><br>
-      <%= address_form.text_field :city %>
+      <%= address_form.text_field :city, class: "form-control" %>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= address_form.label :state %><br>
-      <%= address_form.text_field :state %>
+      <%= address_form.text_field :state, class: "form-control" %>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= address_form.label :zip_code %><br>
-      <%= address_form.text_field :zip_code %>
+      <%= address_form.text_field :zip_code, class: "form-control" %>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= address_form.label :country %><br>
-      <%= address_form.text_field :country %>
+      <%= address_form.text_field :country, class: "form-control" %>
     </div>
   <% end %>
   <!-- Form for address -->

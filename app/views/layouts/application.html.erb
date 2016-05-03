@@ -33,12 +33,10 @@
     <%= javascript_include_tag "application" %>
 
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.css' rel='stylesheet'/>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
-    <![endif]-->
+    <!--[if lt IE 9]> <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script> <![endif]-->
   </head>
   <body>
 
@@ -49,76 +47,72 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/"  data-no-turbolink="true">Llamame</a>
+        <a class="navbar-brand" href="/" data-no-turbolink="true">Llamame</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav navbar-right">
-              <% if current_user %>
-                <% if current_user.is_a_boss %>
-                  <li><%= link_to "Admin Dashboard", "/admin/users"  %></li>
-                <% end %>
-                <li><%= link_to "Profile", "#"  %></li>
-                <li><%= link_to "Sign Out", "/users/sign_out", method: :delete  %></li>
-              <% else %>
-                <li><%= link_to "Sign In", "/users/sign_in"  %></li>
-              <% end %>
+            <% if current_user %>
+            <% if current_user.is_a_boss %>
+            <li><%= link_to "Admin Dashboard", "/admin/users"  %></li>
+            <% end %>
+            <li><%= link_to "Profile", "#"  %></li>
+            <li><%= link_to "Sign Out", "/users/sign_out", method: :delete  %></li>
+          <% else %>
+            <li><%= link_to "Sign In", "/users/sign_in"  %></li>
+            <% end %>
           </ul>
-          <!-- company search bar -->
-          <div class="col-sm-4 col-md-8 pull-right">
-              <form class="navbar-form" role="search">
-                  <!-- company search bar -->
-                  <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Find Companies" name="q">
-                      <div class="input-group-btn">
-                          <button class="btn btn-default" type="submit">
-                              <%= fa_icon(:search) %>
-                          </button>
-                      </div>
-                  </div>
-                  <!-- people search bar -->
-                  <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Find People" name="q">
-                      <div class="input-group-btn">
-                          <button class="btn btn-default" type="submit">
-                              <%= fa_icon(:search) %>
-                          </button>
-                      </div>
-                  </div>
-              </form>
-            </div>
+          <div class="col-sm-6 col-md-6 pull-right">
+            <form class="navbar-form" role="search">
+              <!-- company search bar -->
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" name="q">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit">
+                    <%= fa_icon(:search) %>
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
     <div class="container">
       <div class="row">
         <div class="col-lg-3">
           <div class="well sidebar-nav">
-              <ul class="nav nav-list">
+              <ul class="nav nav-list" id="main-nav">
                 <% if current_user %>
                   <% if current_user.is_a_boss %>
-                    <li><%= link_to "Users", "/admin/users"  %></li>
+                    <li>
+                      <div class="nav-item-container"><div class="nav-icon"><%= fa_icon(:male) %></div><%= link_to "Users", "/admin/users"%><div class="nav-icon"><%= fa_icon(:female) %></div></div>
+                    </li>
                   <% end %>
                 <% end %>
-                <li><%= link_to "Companies", "/companies"  %></li>
-                <li><%= link_to "People", "/people"  %></li>
-                <li><%= link_to "Interactions", "/interactions"  %></li>
-              </ul>
-            <%= yield(:sidebar) if content_for?(:sidebar) %>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="col-lg-9">
-          <div class="flash-messages">
-            <%= bootstrap_flash %>
-          </div>
+              
+              <li><div class="nav-item-container"><div class="nav-icon"><%= fa_icon(:suitcase) %></div><%= link_to "Companies", "/companies"  %></div></li>
+              <li><div class="nav-item-container"><div class="nav-icon" id="icon-people"><%= fa_icon(:user) %></div><%= link_to "People", "/people"  %></div></li>
+              <li><div class="nav-item-container"><div class="nav-icon" id="icon-form"><%= fa_icon(:wpforms) %></div><%= link_to "Interactions", "/interactions"  %></div></li>
+            </ul>
+          <%= yield(:sidebar) if content_for?(:sidebar) %>
+        </div><!--/.well -->
+      </div><!--/span-->
+      <div class="col-lg-9">
+        <div class="flash-messages">
+          <%= bootstrap_flash %>
+        </div>
 
           <%= yield %>
-        </div>
-      </div><!--/row-->
-      <footer>
-        <p>&copy; Llamame 2016</p>
-      </footer>
-    </div> <!-- /container -->
 
-  </body>
+        </div>
+      </div>
+    <!--/row-->
+    <footer>
+      <p>&copy; Llamame 2016</p>
+    </footer>
+  </div>
+  <!-- /container -->
+
+</body>
 </html>

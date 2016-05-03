@@ -26,7 +26,7 @@ class InteractionsController < ApplicationController
 
   # GET /interactions/new
   def new
-    @interaction = Interaction.new
+    @interaction = Interaction.new(person_id: params["person_id"])
   end
 
   # GET /interactions/1/edit
@@ -41,7 +41,7 @@ class InteractionsController < ApplicationController
 
     respond_to do |format|
       if @interaction.save
-        format.html { redirect_to @interaction, notice: 'Interaction was successfully created.' }
+        format.html { redirect_to person_path(id: @interaction.person_id), notice: 'Interaction was successfully created.' }
         format.json { render json: @interaction, status: :created }
       else
         format.html { render action: 'new' }

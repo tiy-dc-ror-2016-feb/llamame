@@ -1,4 +1,4 @@
-<tr>
+<%= content_tag_for(:tr, person) do %>
   <td><%= person.first_name %></td>
   <td><%= person.last_name %></td>
   <td><%= person.company.name if person.company %></td>
@@ -7,4 +7,4 @@
     <%= link_to fa_icon('pencil', text: 'Edit'), edit_person_path(person), class: 'btn btn-sm btn-default' %>
     <%= link_to fa_icon('trash-o', text: 'Destroy'), person, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
   </td>
-</tr>
+<% end %>

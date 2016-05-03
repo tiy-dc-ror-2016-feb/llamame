@@ -12,9 +12,11 @@
 
 <p>
   <strong>People:</strong>
-    <% @company.people.each do |person| %>
-    <%= person.first_name %>
+  <ul>
+  <% @company.people.each do |person| %>
+    <li><%= link_to person.full_name, person_path(person.id) %></li> 
   <% end %>
+  </ul>
 </p>
 
 <p>

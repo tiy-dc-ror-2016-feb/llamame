@@ -15,7 +15,7 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
-    @interactions = @person.interactions.order(created_at: :desc).where(user_id: current_user.id)
+    @interactions = @person.interactions.order(created_at: :desc)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -33,6 +33,10 @@ class PeopleController < ApplicationController
 
   # GET /people/1/edit
   def edit
+    @person = Person.find(params["id"])
+    @person.emails.build if @person.emails.empty?
+    @person.phone_numbers.build if @person.phone_numbers.empty?
+    @person.addresses.build if @person.addresses.empty?
   end
 
   # POST /people
