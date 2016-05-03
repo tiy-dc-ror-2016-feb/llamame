@@ -12,6 +12,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def staff_report
+      StaffReportJob.perform_later
+
+      respond_to do |format|
+        # format.html { render StaffReportJob.perform_now, notice: 'Staff Report successfully generated.' } # csv: generate_staff_report }
+        format.csv  { send_data StaffReportJob.perform_now }
+        format.xls  { send_data StaffReportJob.perform_now(col_sep: "\t") }
+        # format.pdf  { send_data StaffReportJob.perform_now }
+        format.json { render json: @users, status: :created, location: root_path }
+      end
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
