@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#panel-body').collapse({
+  $('.panel-collapse').collapse({
     toggle: true
   })
 })
