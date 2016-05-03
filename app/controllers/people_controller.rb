@@ -58,6 +58,9 @@ class PeopleController < ApplicationController
   # PATCH/PUT /people/1
   # PATCH/PUT /people/1.json
   def update
+    picture = params[:person][:profile_picture]
+    File.write("public/person_pictures/#{@person.id}.jpg", picture.read.force_encoding("utf-8"))
+
     respond_to do |format|
       if @person.update(person_params)
         format.html { redirect_to @person, notice: 'Person was successfully updated.' }

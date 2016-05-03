@@ -2,6 +2,9 @@
 <%= link_to "Add Interaction",  new_interaction_path(person_id: @person.id), class: "btn-block btn btn-success", remote: true %>
 <% end %>
 
+
+<%= image_tag("person_pictures/#{@person.id}.jpg", width: 100, class: 'thumbnail') %>
+
 <div class="page-header">
   <h2>
     <%= "#{@person.first_name} #{@person.last_name} (#{@person.company.name})" %>
