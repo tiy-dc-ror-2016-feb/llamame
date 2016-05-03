@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @results = Person.search(params[:q]) + Company.search(params[:q]) 
+    @results = Person.search(params[:q])
+    @results += Company.search(params[:q])
   end
 end

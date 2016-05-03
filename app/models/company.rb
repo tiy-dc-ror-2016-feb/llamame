@@ -6,6 +6,6 @@ class Company < ActiveRecord::Base
   has_many :notes, as: :noteable
   accepts_nested_attributes_for :addresses
   scope :search, -> (q) do
-    where("lower(companies.name) LIKE ?", "%#{q.downcase}%" )
+    where("lower(companies.name) LIKE ? ", "%#{q.downcase}%")
   end
 end

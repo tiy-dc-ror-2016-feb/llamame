@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'search' => 'search#index'
+  get 'search' => "search#index"
   root 'dashboard#index'
   resources :people do
     resources :emails, shallow: true
@@ -13,8 +13,13 @@ Rails.application.routes.draw do
   resources :interactions
   resources :companies
   scope 'admin' do
-    resources :users
+    resources :users do
+      collection do
+        get :staff_report
+      end
+    end
   end
+
   resources :notes
 
   # The priority is based upon order of creation: first created -> highest priority.

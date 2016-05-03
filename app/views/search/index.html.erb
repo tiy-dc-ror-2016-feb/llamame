@@ -1,6 +1,15 @@
-
 <% if @results.empty? %>
-  <h3>No Results Found</h3>
+  <h3>No Results Found!</h3>
 <% else %>
-  <%= render @results %>
+  <table class="table table-striped">
+    <thead>
+      <th>
+        Name
+      </th>
+      <th colspan="3">
+
+      </th>
+    </thead>
+    <%= render @results %>
+  </table>
 <% end %>
