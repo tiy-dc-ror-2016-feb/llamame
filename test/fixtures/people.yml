@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: sam
-  last_name: who
+  first_name: Sam
+  last_name: Who
   company: one
 
-two:
+mcduck:
   first_name: Scrooge
   last_name: McDuck
   company: two
