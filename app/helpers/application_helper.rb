@@ -1,11 +1,12 @@
 module ApplicationHelper
+  MEDIUMS = {
+    email: :envelope,
+    phone: :phone,
+    in_person: :user,
+    question: :question
+  }.with_indifferent_access.freeze
+
   def icon_type(medium)
-    if medium == "email"
-      fa_icon(:envelope)
-    elsif medium == "phone"
-      fa_icon(:phone)
-    elsif medium == "in_person"
-      fa_icon(:user)
-    end
+    fa_icon(MEDIUMS[medium] || :question)
   end
 end

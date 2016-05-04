@@ -26,6 +26,7 @@ group :test, :development do
   gem "ffaker"
   gem "sqlite3"
   gem "pry"
+  gem 'spring-commands-rspec'
 end
 
 group :test do
@@ -34,6 +35,7 @@ group :test do
   gem "database_cleaner"
   gem "minitest-focus"
   gem "minitest-rails-capybara"
+  gem "rspec-rails"
 end
 
 group :production do
